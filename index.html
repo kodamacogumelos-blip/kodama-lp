@@ -482,6 +482,21 @@
     @media (max-width: 640px) {
       .hero-title { font-size: 2.25rem; line-height: 1.2; }
     }
+    .hero-rotate-word {
+      display: block;
+      height: 1.6em;
+      line-height: 1.6em;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.7rem, 2vw, 0.85rem);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+    }
+    #hero-rotate-inner {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     .hero-video-mobile { display: none; }
     .hero-video-desktop { display: block; }
     @media (max-width: 767px) {
@@ -573,6 +588,16 @@
       <!-- Text -->
       <div class="text-center">
         <span class="section-eyebrow mb-4 block">Juba de Leão · Cordyceps militaris · 60ml · Dupla Extração</span>
+
+        <!-- Rotating words -->
+        <div style="overflow:hidden;height:1.6em;margin-bottom:0.5rem;">
+          <div id="hero-rotate-inner" style="display:flex;flex-direction:column;">
+            <span class="hero-rotate-word">Pureza</span>
+            <span class="hero-rotate-word">Qualidade</span>
+            <span class="hero-rotate-word">Origem</span>
+            <span class="hero-rotate-word">Transparência</span>
+          </div>
+        </div>
 
         <h1 class="font-heading text-white leading-tight mb-6 hero-title" style="font-size:clamp(2.25rem,5vw,3.5rem);">
           Clareza Mental.<br>
@@ -1934,6 +1959,19 @@
       document.getElementById('footer-email-success').classList.remove('hidden');
     });
   }
+
+  // ─── Hero rotating words ──────────────────────────────────────────────────
+  (function() {
+    var inner = document.getElementById('hero-rotate-inner');
+    if (!inner) return;
+    var words = inner.querySelectorAll('.hero-rotate-word');
+    var count = words.length;
+    var current = 0;
+    setInterval(function() {
+      current = (current + 1) % count;
+      inner.style.transform = 'translateY(-' + (current * 1.6) + 'em)';
+    }, 2500);
+  })();
 
   // ─── Science expand ───────────────────────────────────────────────────────
   function expandScience() {
