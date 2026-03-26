@@ -458,6 +458,15 @@
     @media (min-width: 640px) {
       .site-logo   { width: 140px; }
     }
+    @media (max-height: 500px) and (orientation: landscape) {
+      #site-header {
+        padding-top: 0.25rem !important;
+        padding-bottom: 0.25rem !important;
+      }
+      .site-logo {
+        width: 80px !important;
+      }
+    }
 
     /* ─── Responsive ────────────────────────── */
     @media (max-width: 640px) {
