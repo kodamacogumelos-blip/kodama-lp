@@ -256,21 +256,40 @@
       background: transparent;
       border: 2px solid #d1cdc5;
       cursor: pointer;
-      transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.12s, box-shadow 0.18s;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
       white-space: nowrap;
     }
     .tab-btn:hover { border-color: #2D4A10; color: #2D4A10; }
     .tab-btn:focus-visible { outline: 3px solid #C8A96E; outline-offset: 2px; }
-    .tab-btn.active {
-      background: #2D4A10;
+    /* Juba de Leão — silver/white glow */
+    .tab-btn[data-tab="juba"].active {
+      background: #E8E8E8;
+      color: #2D4A10;
+      border-color: #E8E8E8;
+      box-shadow: 0 0 15px rgba(255,255,255,0.5), 0 4px 16px rgba(200,200,200,0.4);
+      transform: translateY(-1px);
+    }
+    /* Cordyceps — orange glow */
+    .tab-btn[data-tab="cordyceps"].active {
+      background: #E87A2E;
       color: #fff;
-      border-color: #2D4A10;
-      box-shadow: 0 4px 16px rgba(45,74,16,0.30), 0 1px 4px rgba(45,74,16,0.18);
+      border-color: #E87A2E;
+      box-shadow: 0 0 15px rgba(232,122,46,0.5), 0 4px 16px rgba(232,122,46,0.35);
+      transform: translateY(-1px);
+    }
+    /* Kit Essencial — gold glow */
+    .tab-btn[data-tab="kit"].active {
+      background: #C5A44E;
+      color: #fff;
+      border-color: #C5A44E;
+      box-shadow: 0 0 15px rgba(197,164,78,0.5), 0 4px 16px rgba(197,164,78,0.35);
       transform: translateY(-1px);
     }
     @media (max-width: 640px) {
       .tab-btn { height: 48px; padding: 0 1.2rem; font-size: 0.82rem; overflow: visible; }
-      .tab-btn.active { box-shadow: 0 4px 20px rgba(45,74,16,0.38); }
+      .tab-btn[data-tab="juba"].active    { box-shadow: 0 0 15px rgba(255,255,255,0.5); }
+      .tab-btn[data-tab="cordyceps"].active { box-shadow: 0 0 15px rgba(232,122,46,0.5); }
+      .tab-btn[data-tab="kit"].active     { box-shadow: 0 0 15px rgba(197,164,78,0.5); }
     }
 
     .qty-card {
