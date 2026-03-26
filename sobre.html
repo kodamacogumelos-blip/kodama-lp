@@ -414,6 +414,120 @@
 
 
 <!-- ════════════════════════════════════════════
+     FAZENDA CAROUSEL
+════════════════════════════════════════════ -->
+<section style="background:#F5F1E8;padding:4rem 0 4.5rem;">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center mb-8 reveal">
+    <span class="section-eyebrow mb-3 block">Fazendinha Samambaia · Goiânia, GO</span>
+    <h2 class="font-heading text-k-green text-2xl sm:text-3xl font-bold leading-tight">
+      Nossa Fazenda — Do Substrato ao Frasco
+    </h2>
+    <p class="font-body text-k-muted text-sm mt-3">
+      Cada frasco começa aqui, cultivado com cuidado em Goiânia, GO.
+    </p>
+  </div>
+
+  <!-- Carousel viewport -->
+  <div style="overflow:hidden;position:relative;" id="fazenda-viewport">
+    <div id="fazenda-track" style="display:flex;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);will-change:transform;">
+      <!-- Images injected by JS -->
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var images = [
+    'brand_assets/cogumelo-cultivo-1_v2.jpg',
+    'brand_assets/cogumelo-cultivo-2_v2.jpg',
+    'brand_assets/cogumelo-cultivo-3_v2.jpg',
+    'brand_assets/cogumelo-cultivo-4_v2.jpg',
+    'brand_assets/cogumelo-cultivo-5_v2.jpg',
+    'brand_assets/cogumelo-cultivo-6_v2.jpg',
+    'brand_assets/cogumelo-cultivo-7_v2.jpg',
+    'brand_assets/cogumelo-cultivo-8_v2.jpg',
+    'brand_assets/cogumelo-cultivo-9_v2.jpg',
+    'brand_assets/cogumelo-cultivo-10_v2.jpg',
+    'brand_assets/cogumelo-cultivo-cordyceps-1_v2.webp',
+  ];
+
+  var track = document.getElementById('fazenda-track');
+  var viewport = document.getElementById('fazenda-viewport');
+
+  function perView() { return window.innerWidth >= 640 ? 3 : 1; }
+  function gap() { return 16; }
+
+  // Build slides (duplicate for seamless loop)
+  var allImgs = images.concat(images); // double for infinite loop
+  allImgs.forEach(function(src, i) {
+    var slide = document.createElement('div');
+    slide.className = 'fazenda-slide';
+    slide.style.cssText = 'flex-shrink:0;padding:0 8px;box-sizing:border-box;';
+    var img = document.createElement('img');
+    img.src = src;
+    img.alt = 'Cultivo Kodama Cogumelos';
+    img.loading = 'lazy';
+    img.style.cssText = 'width:100%;height:280px;object-fit:cover;border-radius:14px;display:block;box-shadow:0 4px 20px rgba(45,74,16,0.12);';
+    slide.appendChild(img);
+    track.appendChild(slide);
+  });
+
+  var cur = 0;
+  var total = images.length;
+  var timer;
+
+  function setSlideWidths() {
+    var pv = perView();
+    var vw = viewport.offsetWidth;
+    var slideW = vw / pv;
+    var slides = track.querySelectorAll('.fazenda-slide');
+    slides.forEach(function(s) { s.style.width = slideW + 'px'; });
+  }
+
+  function goTo(idx, animated) {
+    var pv = perView();
+    var vw = viewport.offsetWidth;
+    var slideW = vw / pv;
+    track.style.transition = animated === false ? 'none' : 'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+    track.style.transform = 'translateX(' + (-idx * slideW) + 'px)';
+    cur = idx;
+  }
+
+  function next() {
+    cur++;
+    goTo(cur, true);
+    // Seamless jump: after animation, if we've scrolled into the duplicate, reset silently
+    if (cur >= total) {
+      setTimeout(function() { goTo(0, false); }, 560);
+    }
+  }
+
+  function start() { timer = setInterval(next, 3000); }
+  function stop()  { clearInterval(timer); }
+
+  setSlideWidths();
+  goTo(0, false);
+  start();
+
+  // Pause on hover
+  viewport.addEventListener('mouseenter', stop);
+  viewport.addEventListener('mouseleave', start);
+
+  // Recalculate on resize
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      setSlideWidths();
+      goTo(0, false);
+      cur = 0;
+    }, 150);
+  });
+})();
+</script>
+
+
+<!-- ════════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════════ -->
 <footer class="bg-k-text text-white py-16">
