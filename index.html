@@ -482,6 +482,12 @@
     @media (max-width: 640px) {
       .hero-title { font-size: 2.25rem; line-height: 1.2; }
     }
+    .hero-video-mobile { display: none; }
+    .hero-video-desktop { display: block; }
+    @media (max-width: 767px) {
+      .hero-video-desktop { display: none; }
+      .hero-video-mobile { display: block; }
+    }
     @media (min-width: 768px) {
       .science-extra { display: block !important; }
       #science-expand-wrap { display: none !important; }
@@ -550,8 +556,11 @@
 ════════════════════════════════════════════ -->
 <section id="hero" class="relative flex items-center py-12 sm:py-16 md:min-h-[92vh] overflow-hidden">
   <!-- Video background -->
-  <video autoplay muted loop playsinline
-         aria-hidden="true"
+  <video autoplay muted loop playsinline aria-hidden="true" class="hero-video-desktop"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;">
+    <source src="brand_assets/hero_forest_background_v2.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline aria-hidden="true" class="hero-video-mobile"
          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;">
     <source src="brand_assets/hero_forest_background_v3.mp4" type="video/mp4">
   </video>
