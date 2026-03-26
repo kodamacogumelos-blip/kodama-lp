@@ -1632,11 +1632,11 @@
       name: 'Kit Essencial',
       image_prefix: 'brand_assets/kit',
       options: [
-        { qty: 1, label: '1 kit',  total: 167.90, per: 167.90, discount: null, link: 'https://seguro.kodamacogumelos.com.br/r/A3MLCR6HB2', freeShip: false, coin: false, popular: false },
-        { qty: 2, label: '2 kits', total: 309.90, per: 154.95, discount: 8,    link: 'https://seguro.kodamacogumelos.com.br/r/KVB7A332B2', freeShip: true,  coin: true,  popular: false },
-        { qty: 3, label: '3 kits', total: 449.90, per: 149.97, discount: 11,   link: 'https://seguro.kodamacogumelos.com.br/r/A7R3D3UC0Q', freeShip: true,  coin: true,  popular: true  },
-        { qty: 4, label: '4 kits', total: 579.90, per: 144.98, discount: 14,   link: 'https://seguro.kodamacogumelos.com.br/r/SC0CDKNMH9', freeShip: true,  coin: true,  popular: false },
-        { qty: 5, label: '5 kits', total: 699.90, per: 139.98, discount: 17,   link: 'https://seguro.kodamacogumelos.com.br/r/REPR15OW3S', freeShip: true,  coin: true,  popular: false },
+        { qty: 1, label: '1 kit',  total: 167.90, per: 83.95,  discount: null, link: 'https://seguro.kodamacogumelos.com.br/r/A3MLCR6HB2', freeShip: false, coin: false, popular: false },
+        { qty: 2, label: '2 kits', total: 309.90, per: 77.47,  discount: 8,    link: 'https://seguro.kodamacogumelos.com.br/r/KVB7A332B2', freeShip: true,  coin: true,  popular: false },
+        { qty: 3, label: '3 kits', total: 449.90, per: 74.98,  discount: 11,   link: 'https://seguro.kodamacogumelos.com.br/r/A7R3D3UC0Q', freeShip: true,  coin: true,  popular: true  },
+        { qty: 4, label: '4 kits', total: 579.90, per: 72.49,  discount: 14,   link: 'https://seguro.kodamacogumelos.com.br/r/SC0CDKNMH9', freeShip: true,  coin: true,  popular: false },
+        { qty: 5, label: '5 kits', total: 699.90, per: 69.99,  discount: 17,   link: 'https://seguro.kodamacogumelos.com.br/r/REPR15OW3S', freeShip: true,  coin: true,  popular: false },
       ],
       defaultIdx: 1
     }
@@ -1690,7 +1690,7 @@
           <div class="flex flex-wrap gap-1 mb-2 min-h-[1.5rem]">${badges}</div>
           <div class="font-heading text-k-green font-bold text-base sm:text-lg leading-tight">${opt.label}</div>
           <div class="font-heading text-k-green font-bold text-xl sm:text-2xl mt-1">${fmt(opt.total)}</div>
-          <div class="font-body text-k-muted text-xs mt-1">${fmt(opt.per)}/un</div>
+          <div class="font-body text-k-muted text-xs mt-1">${fmt(opt.per)}/frasco</div>
           <div class="font-body text-xs mt-1" style="color:#5A5A5A;">ou 3x de ${fmt(Math.ceil(opt.total * 100 / 3) / 100)} s/juros</div>
           ${opt.freeShip
             ? `<div class="font-body text-xs text-green-700 font-semibold mt-2">🚚 Frete GRÁTIS</div>`
