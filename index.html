@@ -484,15 +484,17 @@
     }
     .hero-rotate-word {
       display: block;
-      height: 1.6em;
-      line-height: 1.6em;
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.7rem, 2vw, 0.85rem);
+      height: 1.2em;
+      line-height: 1.2em;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
       font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
       color: #fff;
       text-align: center;
+    }
+    .hero-rotate-word.gold {
+      color: #C8A96E;
+      font-style: italic;
     }
     #hero-rotate-inner {
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -589,19 +591,16 @@
       <div class="text-center">
         <span class="section-eyebrow mb-4 block">Juba de Leão · Cordyceps militaris · 60ml · Dupla Extração</span>
 
-        <!-- Rotating words -->
-        <div style="overflow:hidden;height:1.6em;margin-bottom:0.5rem;">
-          <div id="hero-rotate-inner" style="display:flex;flex-direction:column;">
-            <span class="hero-rotate-word">Pureza</span>
-            <span class="hero-rotate-word">Qualidade</span>
-            <span class="hero-rotate-word">Origem</span>
-            <span class="hero-rotate-word">Transparência</span>
-          </div>
-        </div>
-
         <h1 class="font-heading text-white leading-tight mb-6 hero-title" style="font-size:clamp(2.25rem,5vw,3.5rem);">
-          Clareza Mental.<br>
-          <em class="text-gold not-italic">Energia Pura.</em><br>
+          <!-- Rotating words replacing "Clareza Mental. / Energia Pura." -->
+          <span style="display:block;overflow:hidden;height:1.2em;">
+            <span id="hero-rotate-inner" style="display:flex;flex-direction:column;">
+              <span class="hero-rotate-word">Pureza.</span>
+              <span class="hero-rotate-word gold">Qualidade.</span>
+              <span class="hero-rotate-word">Origem.</span>
+              <span class="hero-rotate-word gold">Transparência.</span>
+            </span>
+          </span>
           Da Natureza para Você.
         </h1>
 
@@ -1969,7 +1968,7 @@
     var current = 0;
     setInterval(function() {
       current = (current + 1) % count;
-      inner.style.transform = 'translateY(-' + (current * 1.6) + 'em)';
+      inner.style.transform = 'translateY(-' + (current * 1.2) + 'em)';
     }, 2500);
   })();
 
