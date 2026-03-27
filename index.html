@@ -359,6 +359,9 @@
       border-radius: 999px;
     }
     .badge-coin {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
       background: linear-gradient(135deg, #2D4A10, #3D6B1A);
       color: #C8A96E;
       font-family: 'Inter', sans-serif;
@@ -674,9 +677,9 @@
     }
     /* qty-card compacto no desktop */
     .produto-card .qty-card { padding: 0.25rem 0.2rem !important; }
-    .produto-card .qty-card .font-heading.text-base { font-size: 0.6rem !important; }
-    .produto-card .qty-card .font-heading.text-xl  { font-size: 0.8rem !important; }
-    .produto-card .qty-card .text-xs { font-size: 0.5rem !important; }
+    .produto-card .qty-card .font-heading.text-base { font-size: 0.75rem !important; }
+    .produto-card .qty-card .font-heading.text-xl  { font-size: 1rem !important; }
+    .produto-card .qty-card .text-xs { font-size: 0.55rem !important; }
     /* Botão comprar compacto */
     .produto-card #cta-produto {
       padding: 0.5rem 1rem !important;
@@ -2045,8 +2048,8 @@
       const isSel = idx === selectedIdx;
       let badges = '';
       if (o.popular)  badges += `<span class="badge-popular">\u2b50 Popular</span>`;
-      if (o.coin)     badges += `<span class="badge-coin ml-1">\uD83C\uDF81 Kodama Coin</span>`;
-      if (o.discount) badges += `<span class="badge-discount ml-1">\u2013${o.discount}%</span>`;
+      if (o.coin)     badges += `<span class="badge-coin">\uD83C\uDF81 Kodama Coin</span>`;
+      if (o.discount) badges += `<span class="badge-discount">\u2013${o.discount}%</span>`;
       optsHtml += `<div class="qty-card ${isSel ? 'selected' : ''} p-3 sm:p-4" role="button" tabindex="0" onclick="selectQty('${produtoKey}', ${idx})" onkeydown="if(event.key==='Enter'||event.key===' ')selectQty('${produtoKey}',${idx})"><div class="flex flex-wrap gap-1 mb-2 min-h-[1.5rem]">${badges}</div><div class="font-heading text-k-green font-bold text-base sm:text-lg leading-tight">${o.label}</div><div class="font-heading text-k-green font-bold text-xl sm:text-2xl mt-1">${fmt(o.total)}</div><div class="font-body text-k-muted text-xs mt-1">${fmt(o.per)}/frasco</div><div class="font-body text-xs mt-1" style="color:#5A5A5A;">ou 3x de ${fmt(Math.ceil(o.total * 100 / 3) / 100)} s/juros</div>${o.freeShip ? '<div class="font-body text-xs text-green-700 font-semibold mt-2">\uD83D\uDE9A Frete GR\u00c1TIS</div>' : '<div class="font-body text-xs text-k-muted mt-2">\uD83D\uDE9A + R$14,90 frete</div>'}</div>`;
     });
 
