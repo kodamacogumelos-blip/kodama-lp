@@ -68,6 +68,110 @@
       justify-content: center;
     }
     #reputation-ra { max-width: 200px; }
+
+    /* ─── Mobile Menu ──────────────────────── */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 28px;
+      height: 2.5px;
+      background: #2D4A10;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .mobile-menu-btn.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+    @media (max-width: 767px) {
+      .mobile-menu-btn { display: flex; }
+      header .back { display: none; }
+    }
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1002;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.active { display: block; opacity: 1; }
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100%;
+      background: #F9F6F0;
+      z-index: 1003;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      color: #2D4A10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s ease;
+    }
+    .mobile-menu-close:hover { background: rgba(45,74,16,0.1); }
+    .mobile-menu-logo { display: block; padding: 1.25rem 1.75rem 0; }
+    .mobile-menu-logo img { width: 100px; height: auto; }
+    .mobile-menu-content { padding: 1rem 1.75rem 2rem; display: flex; flex-direction: column; }
+    .mobile-menu-link {
+      padding: 0.875rem 0;
+      color: #1A1A1A;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(45,74,16,0.1);
+      transition: color 0.2s ease, padding-left 0.2s ease;
+    }
+    .mobile-menu-link:hover { color: #2D4A10; padding-left: 6px; }
+    .mobile-menu-link.active-page { color: #2D4A10; font-weight: 700; }
+    .mobile-menu-cta { margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid rgba(200,169,110,0.35); }
+    .mobile-cta-btn {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: #2D4A10;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .mobile-cta-btn:hover { background: #3D6B1A; transform: translateY(-1px); }
+    body.menu-open { overflow: hidden; }
   </style>
 
   <!-- Microsoft Clarity -->
@@ -84,7 +188,12 @@
 <header>
   <div class="inner">
     <a href="index.html" class="logo">Kodama Cogumelos</a>
-    <a href="index.html" class="back">← Voltar ao site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="index.html" class="back">← Voltar ao site</a>
+      <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Abrir Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -185,6 +294,59 @@
     </div>
   </div>
 </footer>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Fechar Menu">✕</button>
+  <a href="index.html" class="mobile-menu-logo">
+    <img src="brand_assets/logo_v2.png" alt="Kodama Cogumelos" loading="lazy">
+  </a>
+  <div class="mobile-menu-content">
+    <a href="index.html" class="mobile-menu-link">Início</a>
+    <a href="sobre.html" class="mobile-menu-link">Sobre Nós</a>
+    <a href="index.html#como-funciona" class="mobile-menu-link">Como Funciona</a>
+    <a href="index.html#produtos" class="mobile-menu-link">Produtos</a>
+    <a href="index.html#faq" class="mobile-menu-link">FAQ</a>
+    <a href="privacidade.html" class="mobile-menu-link">Privacidade</a>
+    <a href="termos.html" class="mobile-menu-link active-page">Termos de Uso</a>
+    <div class="mobile-menu-cta">
+      <a href="index.html#produtos" class="mobile-cta-btn">COMPRAR AGORA</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+(function() {
+  var btn = document.getElementById('mobile-menu-toggle');
+  var closeBtn = document.getElementById('mobile-menu-close');
+  var menu = document.getElementById('mobile-menu');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if (!btn) return;
+  function openMenu() {
+    menu.classList.add('active');
+    overlay.classList.add('active');
+    document.body.classList.add('menu-open');
+    btn.classList.add('open');
+    menu.setAttribute('aria-hidden', 'false');
+  }
+  function closeMenu() {
+    menu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    btn.classList.remove('open');
+    menu.setAttribute('aria-hidden', 'true');
+  }
+  btn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mobile-menu-link, .mobile-cta-btn').forEach(function(el) {
+    el.addEventListener('click', closeMenu);
+  });
+})();
+</script>
 
 </body>
 </html>
