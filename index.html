@@ -584,19 +584,22 @@
 
     /* ─── Produtos side-by-side layout ─────── */
     .produtos-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 220px 1fr;
-      gap: 1.5rem;
+      gap: 2rem;
       align-items: start;
     }
     @media (max-width: 767px) {
-      .produtos-container { grid-template-columns: 1fr; }
+      .produtos-container { grid-template-columns: 1fr; gap: 0; }
     }
-    /* ── Desktop: product selector (sidebar) ─── */
+
+    /* ── Seletor de produto (sidebar) ─────── */
     .produto-seletor {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.65rem;
       position: sticky;
       top: 80px;
     }
@@ -604,11 +607,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.5rem;
       padding: 1rem 0.75rem;
       background: #fff;
       border: 2px solid #e5e0d8;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
       width: 100%;
@@ -631,31 +634,39 @@
       border-color: #C5A44E; background: #fdf8ec;
       box-shadow: 0 0 20px rgba(197,164,78,0.4); transform: translateY(-1px);
     }
-    .produto-thumb { width: 80px; height: 80px; object-fit: contain; }
-    .kit-thumb { width: 60px; height: 60px; }
+    .produto-thumb { width: 50px; height: 50px; object-fit: contain; border-radius: 6px; }
+    .kit-thumb { width: 42px; height: 42px; }
     .produto-seletor-nome {
-      font-family: 'Inter', sans-serif; font-size: 0.875rem;
-      font-weight: 700; color: #1A1A1A; line-height: 1.2;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem;
+      font-weight: 600; color: #1A1A1A; line-height: 1.2;
     }
     .produto-seletor-sub {
-      font-family: 'Inter', sans-serif; font-size: 0.7rem;
-      color: #8A8A8A; font-style: italic;
+      font-family: 'Inter', sans-serif; font-size: 0.68rem;
+      color: #8A8A8A; font-style: italic; margin-top: 0.1rem;
     }
 
-    /* ── Desktop: compact product card ─────── */
+    /* ── Card de opções (direita) ─────────── */
     .produto-card {
       background: #fff;
       border: 1px solid #e5e0d8;
       border-radius: 16px;
-      padding: 1.75rem;
+      padding: 1.5rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
-    .produto-card #img-produto { max-height: 220px; width: auto; }
+    .produto-card #img-produto {
+      max-width: 220px; max-height: 220px; width: auto;
+    }
+    /* Grid 2 colunas no desktop (mais compacto verticalmente) */
     .opcoes-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.65rem;
-      margin-bottom: 1.25rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    /* Botão comprar compacto */
+    .produto-card #cta-produto {
+      padding: 0.85rem 1rem !important;
+      font-size: 0.95rem !important;
     }
 
     /* ── Mobile: sticky tabs + compact card ─── */
@@ -1019,7 +1030,7 @@
 <!-- ════════════════════════════════════════════
      SELETOR DE QUANTIDADE INTERATIVO
 ════════════════════════════════════════════ -->
-<section id="produtos" class="py-16 sm:py-20 bg-white">
+<section id="produtos" class="py-10 sm:py-14 bg-white">
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-10 reveal">
       <span class="section-eyebrow mb-4 block">Escolha seu kit</span>
