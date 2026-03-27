@@ -592,21 +592,13 @@
     @media (max-width: 767px) {
       .produtos-container { grid-template-columns: 1fr; }
     }
+    /* ── Desktop: product selector (sidebar) ─── */
     .produto-seletor {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
       position: sticky;
       top: 80px;
-    }
-    @media (max-width: 767px) {
-      .produto-seletor {
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 0.5rem;
-        padding-bottom: 4px;
-        position: static;
-      }
     }
     .produto-seletor-btn {
       display: flex;
@@ -621,9 +613,6 @@
       transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
       width: 100%;
       text-align: center;
-    }
-    @media (max-width: 767px) {
-      .produto-seletor-btn { min-width: 90px; flex: 1; padding: 0.75rem 0.5rem; }
     }
     .produto-seletor-btn:hover {
       border-color: #2D4A10;
@@ -652,10 +641,88 @@
       font-family: 'Inter', sans-serif; font-size: 0.7rem;
       color: #8A8A8A; font-style: italic;
     }
+
+    /* ── Desktop: compact product card ─────── */
     .produto-card {
-      background: #fff; border: 1px solid #e5e0d8;
-      border-radius: 16px; padding: 1.5rem;
+      background: #fff;
+      border: 1px solid #e5e0d8;
+      border-radius: 16px;
+      padding: 1.75rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .produto-card #img-produto { max-height: 220px; width: auto; }
+    .opcoes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Mobile: sticky tabs + compact card ─── */
+    @media (max-width: 767px) {
+      /* Tabs horizontais fixos */
+      .produto-seletor {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 100;
+        background: #fff;
+        padding: 0.6rem 0.75rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        border-bottom: 1px solid #e5e0d8;
+        overflow-x: auto;
+        gap: 0.5rem;
+        flex-direction: row;
+      }
+      .produto-seletor-btn {
+        flex-direction: row !important;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.6rem 0.5rem !important;
+        min-width: 85px;
+        flex: 1;
+        border-radius: 8px;
+      }
+      .produto-seletor-nome { font-size: 0.78rem; }
+      .produto-seletor-sub { display: none; }
+      .produto-thumb { width: 24px !important; height: 24px !important; }
+      .kit-thumb { width: 20px !important; height: 20px !important; }
+
+      /* Compact card */
+      .produto-card {
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        box-shadow: none !important;
+        padding: 1.25rem 1rem 0 !important;
+        overflow-y: auto;
+        max-height: calc(100vh - 130px);
+      }
+      .produto-card #img-produto { max-height: 160px !important; }
+
+      /* Opções: 1 coluna */
+      .opcoes-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* CTA sticky no rodapé */
+      .cta-sticky-wrap {
+        position: sticky;
+        bottom: 0;
+        margin: 0.75rem -1rem 0;
+        z-index: 50;
+        background: #fff;
+        box-shadow: 0 -4px 12px rgba(0,0,0,0.12);
+      }
+      .cta-sticky-wrap a {
+        display: block;
+        border-radius: 0 !important;
+        font-size: 1rem !important;
+        padding: 1.1rem !important;
+      }
+      /* Esconder logos de pagamento no mobile para compactar */
+      .cta-sticky-wrap ~ .payment-info { display: none; }
     }
 
     /* ─── Kodama Coin banner v4 ─────────────── */
@@ -1972,13 +2039,13 @@
         <span class="font-body text-xs text-gray-400 font-medium tracking-wide">\u26a1 Estoque limitado</span>
       </div>
       <div class="flex justify-center mb-5">${shipHtml}</div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">${optsHtml}</div>
-      <div class="mt-6 text-center">
+      <div class="opcoes-grid">${optsHtml}</div>
+      <div class="cta-sticky-wrap mt-6 text-center">
         <a id="cta-produto" href="${opt.link}" target="_blank" class="btn-primary text-base py-4 px-12">EU QUERO \u2014 COMPRAR AGORA</a>
-        <div class="mt-4 pt-4" style="border-top:1px solid rgba(0,0,0,0.07);">
-          <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">${PAYMENT_HTML}</div>
-          <p style="font-size:11px;color:#8A8A8A;text-align:center;font-family:'Inter',sans-serif;margin:0;">Parcele em at\u00e9 3x sem juros \u00b7 Ambiente 100% seguro</p>
-        </div>
+      </div>
+      <div class="payment-info mt-4 pt-4 text-center" style="border-top:1px solid rgba(0,0,0,0.07);">
+        <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">${PAYMENT_HTML}</div>
+        <p style="font-size:11px;color:#8A8A8A;font-family:'Inter',sans-serif;margin:0;">Parcele em at\u00e9 3x sem juros \u00b7 Ambiente 100% seguro</p>
       </div>
     `;
   }
