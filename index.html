@@ -351,30 +351,30 @@
       background: #C8A96E;
       color: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 0.625rem;
+      font-size: 0.45rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
+      padding: 0.15rem 0.4rem;
       border-radius: 999px;
     }
     .badge-coin {
       background: linear-gradient(135deg, #2D4A10, #3D6B1A);
       color: #C8A96E;
       font-family: 'Inter', sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.45rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
-      padding: 0.15rem 0.5rem;
+      letter-spacing: 0.04em;
+      padding: 0.12rem 0.35rem;
       border-radius: 999px;
     }
     .badge-discount {
       background: #C8A96E;
       color: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.45rem;
       font-weight: 700;
-      padding: 0.15rem 0.45rem;
+      padding: 0.12rem 0.35rem;
       border-radius: 4px;
     }
 
@@ -587,8 +587,8 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 2rem;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
       align-items: start;
     }
     @media (max-width: 767px) {
@@ -599,16 +599,16 @@
     .produto-seletor {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 0.4rem;
       position: sticky;
-      top: 80px;
+      top: 72px;
     }
     .produto-seletor-btn {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 0.75rem;
+      gap: 0.35rem;
+      padding: 0.75rem 0.5rem;
       background: #fff;
       border: 2px solid #e5e0d8;
       border-radius: 10px;
@@ -624,25 +624,25 @@
     .produto-seletor-btn:focus-visible { outline: 3px solid #C8A96E; outline-offset: 2px; }
     .produto-seletor-btn.active[data-produto="juba"] {
       border-color: #C9B88C; background: #fdf9f3;
-      box-shadow: 0 0 20px rgba(201,184,140,0.4); transform: translateY(-1px);
+      box-shadow: 0 0 16px rgba(201,184,140,0.4); transform: translateY(-1px);
     }
     .produto-seletor-btn.active[data-produto="cordyceps"] {
       border-color: #E87A2E; background: #fff8f4;
-      box-shadow: 0 0 20px rgba(232,122,46,0.3); transform: translateY(-1px);
+      box-shadow: 0 0 16px rgba(232,122,46,0.3); transform: translateY(-1px);
     }
     .produto-seletor-btn.active[data-produto="kit"] {
       border-color: #C5A44E; background: #fdf8ec;
-      box-shadow: 0 0 20px rgba(197,164,78,0.4); transform: translateY(-1px);
+      box-shadow: 0 0 16px rgba(197,164,78,0.4); transform: translateY(-1px);
     }
-    .produto-thumb { width: 50px; height: 50px; object-fit: contain; border-radius: 6px; }
-    .kit-thumb { width: 42px; height: 42px; }
+    .produto-thumb { width: 32px; height: 32px; object-fit: contain; }
+    .kit-thumb { width: 28px; height: 28px; }
     .produto-seletor-nome {
-      font-family: 'Inter', sans-serif; font-size: 0.85rem;
+      font-family: 'Inter', sans-serif; font-size: 0.78rem;
       font-weight: 600; color: #1A1A1A; line-height: 1.2;
     }
     .produto-seletor-sub {
-      font-family: 'Inter', sans-serif; font-size: 0.68rem;
-      color: #8A8A8A; font-style: italic; margin-top: 0.1rem;
+      font-family: 'Inter', sans-serif; font-size: 0.63rem;
+      color: #8A8A8A; font-style: italic; margin-top: 0.05rem;
     }
 
     /* ── Card de opções (direita) ─────────── */
@@ -650,23 +650,31 @@
       background: #fff;
       border: 1px solid #e5e0d8;
       border-radius: 16px;
-      padding: 1.5rem;
+      padding: 1rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
     .produto-card #img-produto {
-      max-width: 220px; max-height: 220px; width: auto;
+      max-width: 130px; max-height: 130px; width: auto;
     }
-    /* Grid 2 colunas no desktop (mais compacto verticalmente) */
+    /* Grid 3 colunas default, 6 em telas >= 1024px */
     .opcoes-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.6rem;
-      margin-bottom: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.35rem;
+      margin-bottom: 0.65rem;
     }
+    @media (min-width: 1024px) {
+      .opcoes-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    /* qty-card compacto no desktop */
+    .produto-card .qty-card { padding: 0.4rem 0.35rem !important; }
+    .produto-card .qty-card .font-heading.text-base { font-size: 0.7rem !important; }
+    .produto-card .qty-card .font-heading.text-xl  { font-size: 0.95rem !important; }
+    .produto-card .qty-card .text-xs { font-size: 0.6rem !important; }
     /* Botão comprar compacto */
     .produto-card #cta-produto {
-      padding: 0.85rem 1rem !important;
-      font-size: 0.95rem !important;
+      padding: 0.55rem 1.25rem !important;
+      font-size: 0.8rem !important;
     }
 
     /* ── Mobile: sticky tabs + compact card ─── */
@@ -706,14 +714,14 @@
         box-shadow: none !important;
         padding: 1.25rem 1rem 0 !important;
         overflow-y: auto;
-        max-height: calc(100vh - 130px);
+        max-height: calc(100vh - 52px);
       }
-      .produto-card #img-produto { max-height: 160px !important; }
+      .produto-card #img-produto { max-width: 90px !important; max-height: 90px !important; }
 
-      /* Opções: 1 coluna */
+      /* Opções: 2 colunas no mobile */
       .opcoes-grid {
-        grid-template-columns: 1fr !important;
-        gap: 0.5rem !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.4rem !important;
         margin-bottom: 0 !important;
       }
 
@@ -1030,7 +1038,7 @@
 <!-- ════════════════════════════════════════════
      SELETOR DE QUANTIDADE INTERATIVO
 ════════════════════════════════════════════ -->
-<section id="produtos" class="py-10 sm:py-14 bg-white">
+<section id="produtos" class="py-6 bg-white">
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-10 reveal">
       <span class="section-eyebrow mb-4 block">Escolha seu kit</span>
@@ -1999,7 +2007,7 @@
   }
 
   // ─── Payment methods HTML (reused in product card) ───────────────────────────
-  const PAYMENT_HTML = `<!-- Visa --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Visa"><rect width="38" height="24" fill="#1A1F71" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="11" letter-spacing="1">VISA</text></svg><!-- Mastercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard"><rect width="38" height="24" fill="#252525" rx="3"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 5.8a7 7 0 0 1 0 12.4 7 7 0 0 1 0-12.4z" fill="#FF5F00"/></svg><!-- Elo --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Elo"><rect width="38" height="24" fill="#FFD700" rx="3"/><text x="19" y="16" text-anchor="middle" fill="#333" font-family="Arial,sans-serif" font-weight="bold" font-size="11">elo</text></svg><!-- Hipercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Hipercard"><rect width="38" height="24" fill="#CC0033" rx="3"/><text x="19" y="11" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">HIPER</text><text x="19" y="18" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">CARD</text></svg><!-- Amex --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="American Express"><rect width="38" height="24" fill="#007BC1" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="8" letter-spacing="0.5">AMEX</text></svg><!-- PIX --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="PIX"><rect width="38" height="24" fill="#32BCAD" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="10">PIX</text></svg><!-- Boleto --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Boleto"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ddd" stroke-width="0.5"/><rect x="5" y="5" width="2" height="14" fill="#444"/><rect x="9" y="5" width="1" height="14" fill="#444"/><rect x="12" y="5" width="3" height="14" fill="#444"/><rect x="17" y="5" width="1" height="14" fill="#444"/><rect x="20" y="5" width="2" height="14" fill="#444"/><rect x="24" y="5" width="1" height="14" fill="#444"/><rect x="27" y="5" width="3" height="14" fill="#444"/><rect x="32" y="5" width="1" height="14" fill="#444"/></svg><span style="display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border-radius:3px;background:#f0faf0;border:1px solid #c3e6cb;" aria-label="SSL seguro"><svg width="10" height="12" viewBox="0 0 10 12" fill="#28a745" xmlns="http://www.w3.org/2000/svg"><path d="M5 0L0 2v4c0 3.3 2.1 5.7 5 6.5 2.9-.8 5-3.2 5-6.5V2L5 0zm-.5 7.5l-1.5-1.5.7-.7.8.8 1.8-1.8.7.7-2.5 2.5z"/></svg><span style="font-size:9px;font-weight:700;color:#28a745;font-family:Arial,sans-serif;">SSL</span></span>`;
+  const PAYMENT_HTML = `<!-- Visa --><svg width="26" height="16" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Visa"><rect width="38" height="24" fill="#1A1F71" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="11" letter-spacing="1">VISA</text></svg><!-- Mastercard --><svg width="26" height="16" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard"><rect width="38" height="24" fill="#252525" rx="3"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 5.8a7 7 0 0 1 0 12.4 7 7 0 0 1 0-12.4z" fill="#FF5F00"/></svg><!-- Elo --><svg width="26" height="16" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Elo"><rect width="38" height="24" fill="#FFD700" rx="3"/><text x="19" y="16" text-anchor="middle" fill="#333" font-family="Arial,sans-serif" font-weight="bold" font-size="11">elo</text></svg><!-- Hipercard --><svg width="26" height="16" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Hipercard"><rect width="38" height="24" fill="#CC0033" rx="3"/><text x="19" y="11" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">HIPER</text><text x="19" y="18" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">CARD</text></svg><!-- Amex --><svg width="26" height="16" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="American Express"><rect width="38" height="24" fill="#007BC1" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="8" letter-spacing="0.5">AMEX</text></svg><!-- PIX --><svg width="26" height="16" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="PIX"><rect width="38" height="24" fill="#32BCAD" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="10">PIX</text></svg><!-- Boleto --><svg width="26" height="16" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Boleto"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ddd" stroke-width="0.5"/><rect x="5" y="5" width="2" height="14" fill="#444"/><rect x="9" y="5" width="1" height="14" fill="#444"/><rect x="12" y="5" width="3" height="14" fill="#444"/><rect x="17" y="5" width="1" height="14" fill="#444"/><rect x="20" y="5" width="2" height="14" fill="#444"/><rect x="24" y="5" width="1" height="14" fill="#444"/><rect x="27" y="5" width="3" height="14" fill="#444"/><rect x="32" y="5" width="1" height="14" fill="#444"/></svg><span style="display:inline-flex;align-items:center;gap:3px;padding:3px 6px;border-radius:3px;background:#f0faf0;border:1px solid #c3e6cb;" aria-label="SSL seguro"><svg width="8" height="10" viewBox="0 0 10 12" fill="#28a745" xmlns="http://www.w3.org/2000/svg"><path d="M5 0L0 2v4c0 3.3 2.1 5.7 5 6.5 2.9-.8 5-3.2 5-6.5V2L5 0zm-.5 7.5l-1.5-1.5.7-.7.8.8 1.8-1.8.7.7-2.5 2.5z"/></svg><span style="font-size:8px;font-weight:700;color:#28a745;font-family:Arial,sans-serif;">SSL</span></span>`;
 
   // ─── Render product card (unified side-by-side layout) ───────────────────────
   function renderProdutoCard(produtoKey) {
