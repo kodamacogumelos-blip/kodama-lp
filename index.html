@@ -351,30 +351,30 @@
       background: #C8A96E;
       color: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 0.45rem;
+      font-size: 0.4rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.15rem 0.4rem;
+      padding: 0.05rem 0.2rem;
       border-radius: 999px;
     }
     .badge-coin {
       background: linear-gradient(135deg, #2D4A10, #3D6B1A);
       color: #C8A96E;
       font-family: 'Inter', sans-serif;
-      font-size: 0.45rem;
+      font-size: 0.4rem;
       font-weight: 700;
       letter-spacing: 0.04em;
-      padding: 0.12rem 0.35rem;
+      padding: 0.05rem 0.2rem;
       border-radius: 999px;
     }
     .badge-discount {
       background: #C8A96E;
       color: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 0.45rem;
+      font-size: 0.4rem;
       font-weight: 700;
-      padding: 0.12rem 0.35rem;
+      padding: 0.05rem 0.2rem;
       border-radius: 4px;
     }
 
@@ -587,8 +587,8 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 170px 1fr;
-      gap: 1.25rem;
+      grid-template-columns: 140px 1fr;
+      gap: 0.75rem;
       align-items: stretch;
     }
     @media (max-width: 767px) {
@@ -610,8 +610,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
-      padding: 0.5rem 0.4rem;
+      gap: 0.3rem;
+      padding: 0.5rem 0.3rem;
       background: #fff;
       border: 2px solid #e5e0d8;
       border-radius: 10px;
@@ -640,14 +640,14 @@
       border-color: #C5A44E; background: #fdf8ec;
       box-shadow: 0 0 16px rgba(197,164,78,0.4); transform: translateY(-1px);
     }
-    .produto-thumb { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
-    .kit-thumb { width: 48px; height: 48px; flex-shrink: 0; }
+    .produto-thumb { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
+    .kit-thumb { width: 34px; height: 34px; flex-shrink: 0; }
     .produto-seletor-nome {
-      font-family: 'Inter', sans-serif; font-size: 0.78rem;
+      font-family: 'Inter', sans-serif; font-size: 0.7rem;
       font-weight: 600; color: #1A1A1A; line-height: 1.2;
     }
     .produto-seletor-sub {
-      font-family: 'Inter', sans-serif; font-size: 0.63rem;
+      font-family: 'Inter', sans-serif; font-size: 0.55rem;
       color: #8A8A8A; font-style: italic; margin-top: 0.05rem;
     }
 
@@ -656,31 +656,35 @@
       background: #fff;
       border: 1px solid #e5e0d8;
       border-radius: 16px;
-      padding: 1rem;
+      padding: 0.75rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
     .produto-card #img-produto {
-      max-width: 110px; max-height: 110px; width: auto;
+      max-width: 100px; max-height: 100px; width: auto;
     }
     /* Grid 3 colunas default, 6 em telas >= 1024px */
     .opcoes-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.3rem;
-      margin-bottom: 0.4rem;
+      gap: 0.25rem;
+      margin-bottom: 0.35rem;
     }
     @media (min-width: 1024px) {
       .opcoes-grid { grid-template-columns: repeat(6, 1fr); }
     }
     /* qty-card compacto no desktop */
-    .produto-card .qty-card { padding: 0.3rem 0.25rem !important; }
-    .produto-card .qty-card .font-heading.text-base { font-size: 0.68rem !important; }
-    .produto-card .qty-card .font-heading.text-xl  { font-size: 0.88rem !important; }
-    .produto-card .qty-card .text-xs { font-size: 0.58rem !important; }
+    .produto-card .qty-card { padding: 0.25rem 0.2rem !important; }
+    .produto-card .qty-card .font-heading.text-base { font-size: 0.6rem !important; }
+    .produto-card .qty-card .font-heading.text-xl  { font-size: 0.8rem !important; }
+    .produto-card .qty-card .text-xs { font-size: 0.5rem !important; }
     /* Botão comprar compacto */
     .produto-card #cta-produto {
-      padding: 0.5rem 1.25rem !important;
-      font-size: 0.8rem !important;
+      padding: 0.5rem 1rem !important;
+      font-size: 0.75rem !important;
+    }
+    /* Esconder payment info no desktop para ganhar espaço vertical */
+    @media (min-width: 768px) {
+      .produto-card .payment-info { display: none !important; }
     }
 
     /* ── Mobile: sticky tabs + compact card ─── */
@@ -1043,9 +1047,9 @@
 ════════════════════════════════════════════ -->
 <section id="produtos" class="py-4 bg-white">
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
-    <div class="text-center mb-3 reveal">
-      <span class="section-eyebrow mb-2 block">Escolha seu kit</span>
-      <h2 class="font-heading text-k-green text-xl sm:text-2xl font-bold leading-tight">
+    <div class="text-center mb-2 reveal">
+      <span class="section-eyebrow mb-1 block">Escolha seu kit</span>
+      <h2 class="font-heading text-k-green text-lg font-bold leading-tight">
         Quanto maior o kit, maior o desconto
       </h2>
     </div>
