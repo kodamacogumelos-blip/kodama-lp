@@ -568,15 +568,11 @@
       }
     }
     @media (max-width: 767px) {
-      #cta-juba.btn-primary,
-      #cta-cordyceps.btn-primary,
-      #cta-kit.btn-primary {
+      #cta-produto.btn-primary {
         background: #2E7D32;
         box-shadow: 0 0 20px rgba(76,175,80,0.4);
       }
-      #cta-juba.btn-primary:hover,
-      #cta-cordyceps.btn-primary:hover,
-      #cta-kit.btn-primary:hover {
+      #cta-produto.btn-primary:hover {
         background: #256327;
         box-shadow: 0 0 28px rgba(76,175,80,0.55);
       }
@@ -584,6 +580,98 @@
     @media (min-width: 768px) {
       .science-extra { display: block !important; }
       #science-expand-wrap { display: none !important; }
+    }
+
+    /* ─── Produtos side-by-side layout ─────── */
+    .produtos-container {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media (max-width: 767px) {
+      .produtos-container { grid-template-columns: 1fr; }
+    }
+    .produto-seletor {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: sticky;
+      top: 80px;
+    }
+    @media (max-width: 767px) {
+      .produto-seletor {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 0.5rem;
+        padding-bottom: 4px;
+        position: static;
+      }
+    }
+    .produto-seletor-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 1rem 0.75rem;
+      background: #fff;
+      border: 2px solid #e5e0d8;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      width: 100%;
+      text-align: center;
+    }
+    @media (max-width: 767px) {
+      .produto-seletor-btn { min-width: 90px; flex: 1; padding: 0.75rem 0.5rem; }
+    }
+    .produto-seletor-btn:hover {
+      border-color: #2D4A10;
+      box-shadow: 0 4px 16px rgba(45,74,16,0.1);
+    }
+    .produto-seletor-btn:focus-visible { outline: 3px solid #C8A96E; outline-offset: 2px; }
+    .produto-seletor-btn.active[data-produto="juba"] {
+      border-color: #C9B88C; background: #fdf9f3;
+      box-shadow: 0 0 20px rgba(201,184,140,0.4); transform: translateY(-1px);
+    }
+    .produto-seletor-btn.active[data-produto="cordyceps"] {
+      border-color: #E87A2E; background: #fff8f4;
+      box-shadow: 0 0 20px rgba(232,122,46,0.3); transform: translateY(-1px);
+    }
+    .produto-seletor-btn.active[data-produto="kit"] {
+      border-color: #C5A44E; background: #fdf8ec;
+      box-shadow: 0 0 20px rgba(197,164,78,0.4); transform: translateY(-1px);
+    }
+    .produto-thumb { width: 80px; height: 80px; object-fit: contain; }
+    .kit-thumb { width: 60px; height: 60px; }
+    .produto-seletor-nome {
+      font-family: 'Inter', sans-serif; font-size: 0.875rem;
+      font-weight: 700; color: #1A1A1A; line-height: 1.2;
+    }
+    .produto-seletor-sub {
+      font-family: 'Inter', sans-serif; font-size: 0.7rem;
+      color: #8A8A8A; font-style: italic;
+    }
+    .produto-card {
+      background: #fff; border: 1px solid #e5e0d8;
+      border-radius: 16px; padding: 1.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    /* ─── Kodama Coin banner v4 ─────────────── */
+    .coin-banner-v4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: 200px;
+    }
+    .coin-banner-v4-text { padding: 2rem 2rem 2rem 2.5rem; }
+    .coin-banner-v4-img { overflow: hidden; height: 220px; }
+    .coin-banner-v4-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    @media (max-width: 640px) {
+      .coin-banner-v4 { grid-template-columns: 1fr; }
+      .coin-banner-v4-text { padding: 1.5rem; }
+      .coin-banner-v4-img { height: 160px; }
     }
   </style>
 
@@ -861,6 +949,66 @@
   </div>
 </section>
 
+<!-- ════════════════════════════════════════════
+     SELETOR DE QUANTIDADE INTERATIVO
+════════════════════════════════════════════ -->
+<section id="produtos" class="py-16 sm:py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10 reveal">
+      <span class="section-eyebrow mb-4 block">Escolha seu kit</span>
+      <h2 class="font-heading text-k-green text-3xl sm:text-4xl font-bold leading-tight mb-4">
+        Quanto maior o kit, maior o desconto
+      </h2>
+      <p class="font-body text-k-muted max-w-lg mx-auto text-sm leading-relaxed">
+        Selecione o produto e a quantidade. Frete GRÁTIS acima de R$200 · Brinde Kodama Coin a partir de 2 kits ou 3+ avulsos.
+      </p>
+    </div>
+
+    <div class="produtos-container reveal">
+      <!-- Left: Seletor de produto -->
+      <div class="produto-seletor">
+        <button class="produto-seletor-btn active" data-produto="juba" onclick="selecionarProduto('juba', this)">
+          <img src="brand_assets/juba-icone.png" alt="Juba de Leão" class="produto-thumb">
+          <span class="produto-seletor-nome">Juba de Leão</span>
+          <span class="produto-seletor-sub">Hericium erinaceus</span>
+        </button>
+        <button class="produto-seletor-btn" data-produto="cordyceps" onclick="selecionarProduto('cordyceps', this)">
+          <img src="brand_assets/cordyceps-icone.png" alt="Cordyceps" class="produto-thumb">
+          <span class="produto-seletor-nome">Cordyceps</span>
+          <span class="produto-seletor-sub">Cordyceps militaris</span>
+        </button>
+        <button class="produto-seletor-btn" data-produto="kit" onclick="selecionarProduto('kit', this)">
+          <img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb">
+          <span class="produto-seletor-nome">Kit Essencial</span>
+          <span class="produto-seletor-sub">Juba + Cordyceps</span>
+        </button>
+      </div>
+
+      <!-- Right: Card dinâmico -->
+      <div class="produto-card" id="produto-card">
+        <!-- Preenchido pelo JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     KODAMA COIN BANNER
+════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 reveal">
+  <div class="rounded-2xl overflow-hidden shadow-k-card border border-k-gold/30">
+    <div class="coin-banner-v4" style="background:linear-gradient(135deg,#1e3408 0%,#2D4A10 60%,#3a5c14 100%);">
+      <div class="coin-banner-v4-text">
+        <span class="section-eyebrow text-k-gold mb-3 block">Brinde Exclusivo</span>
+        <h3 class="font-heading text-white text-2xl sm:text-3xl font-bold leading-tight mb-2">Kodama Coin</h3>
+        <p class="font-body text-white/70 text-sm leading-relaxed">Moeda colecionável exclusiva, de metal sólido. Ganhe com compras de 2 kits ou 3+ avulsos.</p>
+      </div>
+      <div class="coin-banner-v4-img">
+        <img src="brand_assets/kodama-coin-banner_v4.webp" alt="Kodama Coin — brinde exclusivo Kodama Cogumelos" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ════════════════════════════════════════════
      SOCIAL PROOF BAR
@@ -1257,162 +1405,6 @@
 </section>
 
 
-<!-- Kodama Coin promo banner -->
-<div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 reveal">
-  <div class="rounded-2xl overflow-hidden shadow-k-card border border-k-gold/30">
-    <div class="coin-banner-wrap relative w-full" style="min-height:280px;">
-      <img src="brand_assets/kodama-coin-banner_v3.png" alt="Kodama Coin — brinde exclusivo Kodama Cogumelos" class="coin-banner-img w-full h-full object-cover absolute inset-0" style="min-height:280px;" loading="lazy">
-      <div class="coin-banner-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════════
-     SELETOR DE QUANTIDADE INTERATIVO
-════════════════════════════════════════════ -->
-<section id="produtos" class="py-20 sm:py-28 bg-white">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
-    <div class="text-center mb-12 reveal">
-      <span class="section-eyebrow mb-4 block">Escolha seu kit</span>
-      <h2 class="font-heading text-k-green text-3xl sm:text-4xl font-bold leading-tight mb-4">
-        Quanto maior o kit, maior o desconto
-      </h2>
-      <p class="font-body text-k-muted max-w-lg mx-auto text-sm leading-relaxed">
-        Selecione o produto e a quantidade. Frete GRÁTIS acima de R$200 · Brinde Kodama Coin a partir de 2 kits ou 3+ avulsos.
-      </p>
-    </div>
-
-    <!-- Tabs -->
-    <div class="flex justify-center gap-2 sm:gap-3 mb-10 flex-wrap reveal">
-      <button class="tab-btn active" data-tab="juba" onclick="switchTab('juba', this)">
-        <img src="brand_assets/juba-icone.png" alt="" style="width:90px;height:90px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:6px;margin-top:-19px;margin-bottom:-19px;flex-shrink:0;">Juba de Leão
-      </button>
-      <button class="tab-btn" data-tab="cordyceps" onclick="switchTab('cordyceps', this)">
-        <img src="brand_assets/cordyceps-icone.png" alt="" style="width:90px;height:90px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:6px;margin-top:-19px;margin-bottom:-19px;flex-shrink:0;">Cordyceps
-      </button>
-      <button class="tab-btn" data-tab="kit" onclick="switchTab('kit', this)">
-        <img src="brand_assets/kit-icone.png" alt="" style="width:52px;height:52px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:6px;flex-shrink:0;">Kit Essencial
-      </button>
-    </div>
-
-    <!-- Product panels -->
-    <div id="tab-juba" class="tab-panel">
-      <!-- Product header -->
-      <div class="text-center mb-6">
-        <h3 class="font-heading text-k-green text-xl font-bold">Juba de Leão — <em>Hericium erinaceus</em></h3>
-        <p class="font-body text-k-muted text-sm mt-1">Extrato Líquido · 60ml · Dupla Extração Hidroalcoólica</p>
-      </div>
-      <!-- Selected image display -->
-      <div class="flex justify-center mb-6">
-        <img id="img-juba" src="brand_assets/juba-3un_v2.jpg" alt="Juba de Leão" class="h-52 sm:h-64 object-contain transition-opacity duration-200" loading="lazy">
-      </div>
-      <div class="flex justify-center mb-2">
-        <span class="font-body text-xs text-gray-400 font-medium tracking-wide">⚡ Estoque limitado</span>
-      </div>
-      <!-- Shipping indicator -->
-      <div class="flex justify-center mb-6">
-        <span id="ship-text-juba" class="py-1 px-4 rounded-full bg-green-50 text-green-700 border border-green-200 text-sm font-semibold font-body">🚚 Frete GRÁTIS incluído!</span>
-      </div>
-      <!-- Cards grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4" id="cards-juba">
-        <!-- Generated by JS -->
-      </div>
-      <!-- CTA -->
-      <div class="mt-8 text-center">
-        <a id="cta-juba" href="#" target="_blank" class="btn-primary text-base py-4 px-12">
-          EU QUERO — COMPRAR AGORA
-        </a>
-        <div class="mt-4 pt-4" style="border-top:1px solid rgba(0,0,0,0.07);">
-          <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">
-            <!-- Visa --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Visa"><rect width="38" height="24" fill="#1A1F71" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="11" letter-spacing="1">VISA</text></svg>
-            <!-- Mastercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard"><rect width="38" height="24" fill="#252525" rx="3"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 5.8a7 7 0 0 1 0 12.4 7 7 0 0 1 0-12.4z" fill="#FF5F00"/></svg>
-            <!-- Elo --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Elo"><rect width="38" height="24" fill="#FFD700" rx="3"/><text x="19" y="16" text-anchor="middle" fill="#333" font-family="Arial,sans-serif" font-weight="bold" font-size="11">elo</text></svg>
-            <!-- Hipercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Hipercard"><rect width="38" height="24" fill="#CC0033" rx="3"/><text x="19" y="11" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">HIPER</text><text x="19" y="18" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">CARD</text></svg>
-            <!-- Amex --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="American Express"><rect width="38" height="24" fill="#007BC1" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="8" letter-spacing="0.5">AMEX</text></svg>
-            <!-- Diners --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Diners Club"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ccc" stroke-width="0.5"/><circle cx="19" cy="12" r="8" fill="none" stroke="#888" stroke-width="1.5"/><line x1="14" y1="12" x2="24" y2="12" stroke="#888" stroke-width="1.5"/></svg>
-            <!-- PIX --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="PIX"><rect width="38" height="24" fill="#32BCAD" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="10">PIX</text></svg>
-            <!-- Boleto --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Boleto"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ddd" stroke-width="0.5"/><rect x="5" y="5" width="2" height="14" fill="#444"/><rect x="9" y="5" width="1" height="14" fill="#444"/><rect x="12" y="5" width="3" height="14" fill="#444"/><rect x="17" y="5" width="1" height="14" fill="#444"/><rect x="20" y="5" width="2" height="14" fill="#444"/><rect x="24" y="5" width="1" height="14" fill="#444"/><rect x="27" y="5" width="3" height="14" fill="#444"/><rect x="32" y="5" width="1" height="14" fill="#444"/></svg>
-            <!-- SSL --><span style="display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border-radius:3px;background:#f0faf0;border:1px solid #c3e6cb;" aria-label="Conexão SSL segura"><svg width="10" height="12" viewBox="0 0 10 12" fill="#28a745" xmlns="http://www.w3.org/2000/svg"><path d="M5 0L0 2v4c0 3.3 2.1 5.7 5 6.5 2.9-.8 5-3.2 5-6.5V2L5 0zm-.5 7.5l-1.5-1.5.7-.7.8.8 1.8-1.8.7.7-2.5 2.5z"/></svg><span style="font-size:9px;font-weight:700;color:#28a745;font-family:Arial,sans-serif;">SSL</span></span>
-          </div>
-          <p style="font-size:11px;color:#8A8A8A;text-align:center;font-family:'Inter',sans-serif;margin:0;">Parcele em até 3x sem juros · Ambiente 100% seguro</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="tab-cordyceps" class="tab-panel hidden">
-      <div class="text-center mb-6">
-        <h3 class="font-heading text-k-green text-xl font-bold">Cordyceps — <em>Cordyceps militaris</em></h3>
-        <p class="font-body text-k-muted text-sm mt-1">Extrato Líquido · 60ml · Dupla Extração Hidroalcoólica</p>
-      </div>
-      <div class="flex justify-center mb-6">
-        <img id="img-cordyceps" src="brand_assets/cordyceps-3un_v2.jpg" alt="Cordyceps" class="h-52 sm:h-64 object-contain transition-opacity duration-200" loading="lazy">
-      </div>
-      <div class="flex justify-center mb-2">
-        <span class="font-body text-xs text-gray-400 font-medium tracking-wide">⚡ Estoque limitado</span>
-      </div>
-      <div class="flex justify-center mb-6">
-        <span id="ship-text-cordyceps" class="py-1 px-4 rounded-full bg-green-50 text-green-700 border border-green-200 text-sm font-semibold font-body">🚚 Frete GRÁTIS incluído!</span>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4" id="cards-cordyceps"></div>
-      <div class="mt-8 text-center">
-        <a id="cta-cordyceps" href="#" target="_blank" class="btn-primary text-base py-4 px-12">
-          EU QUERO — COMPRAR AGORA
-        </a>
-        <div class="mt-4 pt-4" style="border-top:1px solid rgba(0,0,0,0.07);">
-          <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">
-            <!-- Visa --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Visa"><rect width="38" height="24" fill="#1A1F71" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="11" letter-spacing="1">VISA</text></svg>
-            <!-- Mastercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard"><rect width="38" height="24" fill="#252525" rx="3"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 5.8a7 7 0 0 1 0 12.4 7 7 0 0 1 0-12.4z" fill="#FF5F00"/></svg>
-            <!-- Elo --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Elo"><rect width="38" height="24" fill="#FFD700" rx="3"/><text x="19" y="16" text-anchor="middle" fill="#333" font-family="Arial,sans-serif" font-weight="bold" font-size="11">elo</text></svg>
-            <!-- Hipercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Hipercard"><rect width="38" height="24" fill="#CC0033" rx="3"/><text x="19" y="11" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">HIPER</text><text x="19" y="18" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">CARD</text></svg>
-            <!-- Amex --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="American Express"><rect width="38" height="24" fill="#007BC1" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="8" letter-spacing="0.5">AMEX</text></svg>
-            <!-- Diners --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Diners Club"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ccc" stroke-width="0.5"/><circle cx="19" cy="12" r="8" fill="none" stroke="#888" stroke-width="1.5"/><line x1="14" y1="12" x2="24" y2="12" stroke="#888" stroke-width="1.5"/></svg>
-            <!-- PIX --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="PIX"><rect width="38" height="24" fill="#32BCAD" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="10">PIX</text></svg>
-            <!-- Boleto --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Boleto"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ddd" stroke-width="0.5"/><rect x="5" y="5" width="2" height="14" fill="#444"/><rect x="9" y="5" width="1" height="14" fill="#444"/><rect x="12" y="5" width="3" height="14" fill="#444"/><rect x="17" y="5" width="1" height="14" fill="#444"/><rect x="20" y="5" width="2" height="14" fill="#444"/><rect x="24" y="5" width="1" height="14" fill="#444"/><rect x="27" y="5" width="3" height="14" fill="#444"/><rect x="32" y="5" width="1" height="14" fill="#444"/></svg>
-            <!-- SSL --><span style="display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border-radius:3px;background:#f0faf0;border:1px solid #c3e6cb;" aria-label="Conexão SSL segura"><svg width="10" height="12" viewBox="0 0 10 12" fill="#28a745" xmlns="http://www.w3.org/2000/svg"><path d="M5 0L0 2v4c0 3.3 2.1 5.7 5 6.5 2.9-.8 5-3.2 5-6.5V2L5 0zm-.5 7.5l-1.5-1.5.7-.7.8.8 1.8-1.8.7.7-2.5 2.5z"/></svg><span style="font-size:9px;font-weight:700;color:#28a745;font-family:Arial,sans-serif;">SSL</span></span>
-          </div>
-          <p style="font-size:11px;color:#8A8A8A;text-align:center;font-family:'Inter',sans-serif;margin:0;">Parcele em até 3x sem juros · Ambiente 100% seguro</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="tab-kit" class="tab-panel hidden">
-      <div class="text-center mb-6">
-        <h3 class="font-heading text-k-green text-xl font-bold">Kit Essencial — Juba + Cordyceps</h3>
-        <p class="font-body text-k-muted text-sm mt-1">1 Juba de Leão + 1 Cordyceps · 2 × 60ml · Dupla Extração</p>
-      </div>
-      <div class="flex justify-center mb-6">
-        <img id="img-kit" src="brand_assets/kit-2un_v2.jpg" alt="Kit Essencial" class="h-52 sm:h-64 object-contain transition-opacity duration-200" loading="lazy">
-      </div>
-      <div class="flex justify-center mb-2">
-        <span class="font-body text-xs text-gray-400 font-medium tracking-wide">⚡ Estoque limitado</span>
-      </div>
-      <div class="flex justify-center mb-6">
-        <span id="ship-text-kit" class="py-1 px-4 rounded-full bg-green-50 text-green-700 border border-green-200 text-sm font-semibold font-body">🚚 Frete GRÁTIS incluído!</span>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4" id="cards-kit"></div>
-      <div class="mt-8 text-center">
-        <a id="cta-kit" href="#" target="_blank" class="btn-primary text-base py-4 px-12">
-          EU QUERO — COMPRAR AGORA
-        </a>
-        <div class="mt-4 pt-4" style="border-top:1px solid rgba(0,0,0,0.07);">
-          <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">
-            <!-- Visa --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Visa"><rect width="38" height="24" fill="#1A1F71" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="11" letter-spacing="1">VISA</text></svg>
-            <!-- Mastercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard"><rect width="38" height="24" fill="#252525" rx="3"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 5.8a7 7 0 0 1 0 12.4 7 7 0 0 1 0-12.4z" fill="#FF5F00"/></svg>
-            <!-- Elo --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Elo"><rect width="38" height="24" fill="#FFD700" rx="3"/><text x="19" y="16" text-anchor="middle" fill="#333" font-family="Arial,sans-serif" font-weight="bold" font-size="11">elo</text></svg>
-            <!-- Hipercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Hipercard"><rect width="38" height="24" fill="#CC0033" rx="3"/><text x="19" y="11" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">HIPER</text><text x="19" y="18" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">CARD</text></svg>
-            <!-- Amex --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="American Express"><rect width="38" height="24" fill="#007BC1" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="8" letter-spacing="0.5">AMEX</text></svg>
-            <!-- Diners --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Diners Club"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ccc" stroke-width="0.5"/><circle cx="19" cy="12" r="8" fill="none" stroke="#888" stroke-width="1.5"/><line x1="14" y1="12" x2="24" y2="12" stroke="#888" stroke-width="1.5"/></svg>
-            <!-- PIX --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="PIX"><rect width="38" height="24" fill="#32BCAD" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="10">PIX</text></svg>
-            <!-- Boleto --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Boleto"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ddd" stroke-width="0.5"/><rect x="5" y="5" width="2" height="14" fill="#444"/><rect x="9" y="5" width="1" height="14" fill="#444"/><rect x="12" y="5" width="3" height="14" fill="#444"/><rect x="17" y="5" width="1" height="14" fill="#444"/><rect x="20" y="5" width="2" height="14" fill="#444"/><rect x="24" y="5" width="1" height="14" fill="#444"/><rect x="27" y="5" width="3" height="14" fill="#444"/><rect x="32" y="5" width="1" height="14" fill="#444"/></svg>
-            <!-- SSL --><span style="display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border-radius:3px;background:#f0faf0;border:1px solid #c3e6cb;" aria-label="Conexão SSL segura"><svg width="10" height="12" viewBox="0 0 10 12" fill="#28a745" xmlns="http://www.w3.org/2000/svg"><path d="M5 0L0 2v4c0 3.3 2.1 5.7 5 6.5 2.9-.8 5-3.2 5-6.5V2L5 0zm-.5 7.5l-1.5-1.5.7-.7.8.8 1.8-1.8.7.7-2.5 2.5z"/></svg><span style="font-size:9px;font-weight:700;color:#28a745;font-family:Arial,sans-serif;">SSL</span></span>
-          </div>
-          <p style="font-size:11px;color:#8A8A8A;text-align:center;font-family:'Inter',sans-serif;margin:0;">Parcele em até 3x sem juros · Ambiente 100% seguro</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 
 <!-- ════════════════════════════════════════════
@@ -1928,106 +1920,86 @@
     }
   }
 
-  // ─── Render cards ────────────────────────────────────────────────────────────
-  function renderCards(tabKey) {
-    const container = document.getElementById(`cards-${tabKey}`);
-    const product   = PRODUCTS[tabKey];
-    const selectedIdx = state[tabKey];
-    let html = '';
+  // ─── Payment methods HTML (reused in product card) ───────────────────────────
+  const PAYMENT_HTML = `<!-- Visa --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Visa"><rect width="38" height="24" fill="#1A1F71" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="11" letter-spacing="1">VISA</text></svg><!-- Mastercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard"><rect width="38" height="24" fill="#252525" rx="3"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 5.8a7 7 0 0 1 0 12.4 7 7 0 0 1 0-12.4z" fill="#FF5F00"/></svg><!-- Elo --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Elo"><rect width="38" height="24" fill="#FFD700" rx="3"/><text x="19" y="16" text-anchor="middle" fill="#333" font-family="Arial,sans-serif" font-weight="bold" font-size="11">elo</text></svg><!-- Hipercard --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Hipercard"><rect width="38" height="24" fill="#CC0033" rx="3"/><text x="19" y="11" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">HIPER</text><text x="19" y="18" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="5.5">CARD</text></svg><!-- Amex --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="American Express"><rect width="38" height="24" fill="#007BC1" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="8" letter-spacing="0.5">AMEX</text></svg><!-- PIX --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="PIX"><rect width="38" height="24" fill="#32BCAD" rx="3"/><text x="19" y="16" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-weight="bold" font-size="10">PIX</text></svg><!-- Boleto --><svg width="38" height="24" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" aria-label="Boleto"><rect width="38" height="24" fill="#F5F5F5" rx="3" stroke="#ddd" stroke-width="0.5"/><rect x="5" y="5" width="2" height="14" fill="#444"/><rect x="9" y="5" width="1" height="14" fill="#444"/><rect x="12" y="5" width="3" height="14" fill="#444"/><rect x="17" y="5" width="1" height="14" fill="#444"/><rect x="20" y="5" width="2" height="14" fill="#444"/><rect x="24" y="5" width="1" height="14" fill="#444"/><rect x="27" y="5" width="3" height="14" fill="#444"/><rect x="32" y="5" width="1" height="14" fill="#444"/></svg><span style="display:inline-flex;align-items:center;gap:3px;padding:4px 8px;border-radius:3px;background:#f0faf0;border:1px solid #c3e6cb;" aria-label="SSL seguro"><svg width="10" height="12" viewBox="0 0 10 12" fill="#28a745" xmlns="http://www.w3.org/2000/svg"><path d="M5 0L0 2v4c0 3.3 2.1 5.7 5 6.5 2.9-.8 5-3.2 5-6.5V2L5 0zm-.5 7.5l-1.5-1.5.7-.7.8.8 1.8-1.8.7.7-2.5 2.5z"/></svg><span style="font-size:9px;font-weight:700;color:#28a745;font-family:Arial,sans-serif;">SSL</span></span>`;
 
-    product.options.forEach((opt, idx) => {
-      const isSelected = idx === selectedIdx;
-      const selectedClass = isSelected ? 'selected' : '';
+  // ─── Render product card (unified side-by-side layout) ───────────────────────
+  function renderProdutoCard(produtoKey) {
+    const card = document.getElementById('produto-card');
+    if (!card) return;
+    const produto = PRODUCTS[produtoKey];
+    const selectedIdx = state[produtoKey];
+    const opt = produto.options[selectedIdx];
 
+    // Dynamic subtitle — fixes Kit Essencial bug
+    let subtitle;
+    if (produtoKey === 'kit') {
+      const n = opt.qty;
+      subtitle = `${n} Juba de Le\u00e3o + ${n} Cordyceps \u00b7 ${n * 2} \u00d7 60ml \u00b7 Dupla Extra\u00e7\u00e3o`;
+    } else {
+      subtitle = 'Extrato L\u00edquido \u00b7 60ml \u00b7 Dupla Extra\u00e7\u00e3o Hidroalco\u00f3lica';
+    }
+
+    const titles = {
+      juba: 'Juba de Le\u00e3o \u2014 <em>Hericium erinaceus</em>',
+      cordyceps: 'Cordyceps \u2014 <em>Cordyceps militaris</em>',
+      kit: 'Kit Essencial \u2014 Juba + Cordyceps'
+    };
+
+    const shipHtml = opt.freeShip
+      ? `<span class="py-1 px-4 rounded-full bg-green-50 text-green-700 border border-green-200 text-sm font-semibold font-body">\uD83D\uDE9A Frete GR\u00c1TIS inclu\u00eddo!</span>`
+      : `<span class="py-1 px-4 rounded-full bg-gray-50 text-gray-500 border border-gray-200 text-sm font-semibold font-body">\uD83D\uDE9A Frete R$14,90 \u00b7 Gr\u00e1tis acima de R$200</span>`;
+
+    let optsHtml = '';
+    produto.options.forEach((o, idx) => {
+      const isSel = idx === selectedIdx;
       let badges = '';
-      if (opt.popular)   badges += `<span class="badge-popular">⭐ Popular</span>`;
-      if (opt.coin)      badges += `<span class="badge-coin ml-1">🎁 Kodama Coin</span>`;
-      if (opt.discount)  badges += `<span class="badge-discount ml-1">–${opt.discount}%</span>`;
-
-      html += `
-        <div class="qty-card ${selectedClass} p-3 sm:p-4"
-             role="button" tabindex="0"
-             data-tab="${tabKey}" data-idx="${idx}"
-             onclick="selectQty('${tabKey}', ${idx})"
-             onkeydown="if(event.key==='Enter'||event.key===' ')selectQty('${tabKey}',${idx})">
-          <div class="flex flex-wrap gap-1 mb-2 min-h-[1.5rem]">${badges}</div>
-          <div class="font-heading text-k-green font-bold text-base sm:text-lg leading-tight">${opt.label}</div>
-          <div class="font-heading text-k-green font-bold text-xl sm:text-2xl mt-1">${fmt(opt.total)}</div>
-          <div class="font-body text-k-muted text-xs mt-1">${fmt(opt.per)}/frasco</div>
-          <div class="font-body text-xs mt-1" style="color:#5A5A5A;">ou 3x de ${fmt(Math.ceil(opt.total * 100 / 3) / 100)} s/juros</div>
-          ${opt.freeShip
-            ? `<div class="font-body text-xs text-green-700 font-semibold mt-2">🚚 Frete GRÁTIS</div>`
-            : `<div class="font-body text-xs text-k-muted mt-2">🚚 + R$14,90 frete</div>`}
-        </div>
-      `;
+      if (o.popular)  badges += `<span class="badge-popular">\u2b50 Popular</span>`;
+      if (o.coin)     badges += `<span class="badge-coin ml-1">\uD83C\uDF81 Kodama Coin</span>`;
+      if (o.discount) badges += `<span class="badge-discount ml-1">\u2013${o.discount}%</span>`;
+      optsHtml += `<div class="qty-card ${isSel ? 'selected' : ''} p-3 sm:p-4" role="button" tabindex="0" onclick="selectQty('${produtoKey}', ${idx})" onkeydown="if(event.key==='Enter'||event.key===' ')selectQty('${produtoKey}',${idx})"><div class="flex flex-wrap gap-1 mb-2 min-h-[1.5rem]">${badges}</div><div class="font-heading text-k-green font-bold text-base sm:text-lg leading-tight">${o.label}</div><div class="font-heading text-k-green font-bold text-xl sm:text-2xl mt-1">${fmt(o.total)}</div><div class="font-body text-k-muted text-xs mt-1">${fmt(o.per)}/frasco</div><div class="font-body text-xs mt-1" style="color:#5A5A5A;">ou 3x de ${fmt(Math.ceil(o.total * 100 / 3) / 100)} s/juros</div>${o.freeShip ? '<div class="font-body text-xs text-green-700 font-semibold mt-2">\uD83D\uDE9A Frete GR\u00c1TIS</div>' : '<div class="font-body text-xs text-k-muted mt-2">\uD83D\uDE9A + R$14,90 frete</div>'}</div>`;
     });
 
-    container.innerHTML = html;
-  }
-
-  // ─── Update shipping indicator ───────────────────────────────────────────────
-  function updateShipIndicator(tabKey) {
-    const opt = PRODUCTS[tabKey].options[state[tabKey]];
-    const el  = document.getElementById(`ship-text-${tabKey}`);
-    if (!el) return;
-    if (opt.freeShip) {
-      el.className = 'py-1 px-4 rounded-full bg-green-50 text-green-700 border border-green-200 text-sm font-semibold';
-      el.textContent = '🚚 Frete GRÁTIS incluído!';
-    } else {
-      el.className = 'py-1 px-4 rounded-full bg-gray-50 text-gray-500 border border-gray-200 text-sm font-semibold';
-      el.textContent = '🚚 Frete R$14,90 · Frete grátis a partir de R$200';
-    }
-  }
-
-  // ─── Update product image ────────────────────────────────────────────────────
-  function updateImg(tabKey) {
-    const opt = PRODUCTS[tabKey].options[state[tabKey]];
-    const img = document.getElementById(`img-${tabKey}`);
-    if (!img) return;
-    img.style.opacity = '0';
-    setTimeout(() => {
-      img.src = getImg(tabKey, opt.qty);
-      img.style.opacity = '1';
-    }, 150);
-  }
-
-  // ─── Update CTA link ─────────────────────────────────────────────────────────
-  function updateCTA(tabKey) {
-    const opt = PRODUCTS[tabKey].options[state[tabKey]];
-    const cta = document.getElementById(`cta-${tabKey}`);
-    if (!cta) return;
-    cta.href = opt.link;
+    card.innerHTML = `
+      <div class="text-center mb-4">
+        <h3 class="font-heading text-k-green text-xl font-bold">${titles[produtoKey]}</h3>
+        <p class="font-body text-k-muted text-sm mt-1">${subtitle}</p>
+      </div>
+      <div class="flex justify-center mb-4">
+        <img id="img-produto" src="${getImg(produtoKey, opt.qty)}" alt="${produto.name}" class="h-48 sm:h-56 object-contain transition-opacity duration-200" loading="lazy">
+      </div>
+      <div class="flex justify-center mb-2">
+        <span class="font-body text-xs text-gray-400 font-medium tracking-wide">\u26a1 Estoque limitado</span>
+      </div>
+      <div class="flex justify-center mb-5">${shipHtml}</div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">${optsHtml}</div>
+      <div class="mt-6 text-center">
+        <a id="cta-produto" href="${opt.link}" target="_blank" class="btn-primary text-base py-4 px-12">EU QUERO \u2014 COMPRAR AGORA</a>
+        <div class="mt-4 pt-4" style="border-top:1px solid rgba(0,0,0,0.07);">
+          <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">${PAYMENT_HTML}</div>
+          <p style="font-size:11px;color:#8A8A8A;text-align:center;font-family:'Inter',sans-serif;margin:0;">Parcele em at\u00e9 3x sem juros \u00b7 Ambiente 100% seguro</p>
+        </div>
+      </div>
+    `;
   }
 
   // ─── Select quantity ──────────────────────────────────────────────────────────
-  function selectQty(tabKey, idx) {
-    state[tabKey] = idx;
-    renderCards(tabKey);
-    updateShipIndicator(tabKey);
-    updateImg(tabKey);
-    updateCTA(tabKey);
+  function selectQty(produtoKey, idx) {
+    state[produtoKey] = idx;
+    renderProdutoCard(produtoKey);
   }
 
-  // ─── Switch tab ───────────────────────────────────────────────────────────────
-  function switchTab(tabKey, btnEl) {
-    // Hide all panels
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
-    // Deactivate all tab buttons
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    // Show selected
-    document.getElementById(`tab-${tabKey}`).classList.remove('hidden');
+  // ─── Select product (sidebar) ─────────────────────────────────────────────────
+  function selecionarProduto(produtoKey, btnEl) {
+    document.querySelectorAll('.produto-seletor-btn').forEach(b => b.classList.remove('active'));
     btnEl.classList.add('active');
-    state.activeTab = tabKey;
+    state.activeTab = produtoKey;
+    renderProdutoCard(produtoKey);
   }
 
   // ─── Init ─────────────────────────────────────────────────────────────────────
   function init() {
-    ['juba', 'cordyceps', 'kit'].forEach(key => {
-      renderCards(key);
-      updateShipIndicator(key);
-      updateImg(key);
-      updateCTA(key);
-    });
+    renderProdutoCard(state.activeTab);
   }
 
   // ─── Scroll reveal ────────────────────────────────────────────────────────────
