@@ -757,6 +757,24 @@
       .cta-sticky-wrap ~ .payment-info { display: none; }
     }
 
+    /* ─── Imagem decorativa #produtos ──────── */
+    .produtos-deco-img {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      object-position: right center;
+      opacity: 0.18;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    @media (max-width: 767px) {
+      .produtos-deco-img { display: none; }
+    }
+
     /* ─── Kodama Coin banner v4 ─────────────── */
     .coin-banner-v4 {
       display: grid;
@@ -1048,7 +1066,7 @@
 <!-- ════════════════════════════════════════════
      SELETOR DE QUANTIDADE INTERATIVO
 ════════════════════════════════════════════ -->
-<section id="produtos" class="py-4 bg-white">
+<section id="produtos" class="py-4 bg-white" style="position:relative;overflow:hidden;">
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-2 reveal">
       <span class="section-eyebrow mb-1 block">Escolha seu kit</span>
@@ -1057,7 +1075,9 @@
       </h2>
     </div>
 
-    <div class="produtos-container reveal">
+    <img src="brand_assets/juba-tronco-transparente.png" alt="" aria-hidden="true" loading="lazy" class="produtos-deco-img">
+
+    <div class="produtos-container reveal" style="position:relative;z-index:1;">
       <!-- Left: Seletor de produto -->
       <div class="produto-seletor">
         <button class="produto-seletor-btn active" data-produto="juba" onclick="selecionarProduto('juba', this)">
