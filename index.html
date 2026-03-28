@@ -785,8 +785,7 @@
     }
 
     /* ─── Imagem decorativa #produtos ──────── */
-    #produtos::after {
-      content: '';
+    .produtos-deco-tronco {
       position: absolute;
       right: 0;
       top: 0;
@@ -798,10 +797,16 @@
       background-size: contain;
       opacity: 0.45;
       z-index: 2;
-      pointer-events: none;
+      pointer-events: auto;
+      cursor: default;
+      transition: opacity 0.4s ease, filter 0.4s ease;
+    }
+    .produtos-deco-tronco:hover {
+      opacity: 0.85;
+      filter: brightness(1.25) saturate(1.1);
     }
     @media (max-width: 767px) {
-      #produtos::after { display: none; }
+      .produtos-deco-tronco { display: none; }
     }
 
     /* ─── Kodama Coin banner v4 ─────────────── */
@@ -1102,6 +1107,7 @@
      SELETOR DE QUANTIDADE INTERATIVO
 ════════════════════════════════════════════ -->
 <section id="produtos" class="py-4 bg-white" style="position:relative;overflow:hidden;">
+  <div class="produtos-deco-tronco" aria-hidden="true"></div>
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-2 reveal">
       <span class="section-eyebrow mb-1 block">Escolha seu cogumelo</span>
