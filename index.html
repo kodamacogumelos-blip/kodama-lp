@@ -758,6 +758,32 @@
       .cta-sticky-wrap ~ .payment-info { display: none; }
     }
 
+    /* ─── Hero eyebrow/trust mobile anchors ─── */
+    .hero-eyebrow-mobile {
+      display: none;
+      position: absolute;
+      top: 1rem;
+      left: 0; right: 0;
+      text-align: center;
+      z-index: 3;
+      padding: 0 1rem;
+    }
+    .hero-trust-mobile {
+      display: none;
+      position: absolute;
+      bottom: 1rem;
+      left: 0; right: 0;
+      text-align: center;
+      z-index: 3;
+      padding: 0 1rem;
+    }
+    @media (max-width: 767px) {
+      .hero-eyebrow-mobile { display: block; }
+      .hero-trust-mobile   { display: block; }
+      .hero-eyebrow-desktop { display: none !important; }
+      .hero-trust-desktop   { display: none !important; }
+    }
+
     /* ─── Imagem decorativa #produtos ──────── */
     #produtos::after {
       content: '';
@@ -1008,21 +1034,26 @@
   <!-- Dark overlay for text readability -->
   <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;pointer-events:none;" aria-hidden="true"></div>
 
+  <!-- Eyebrow: mobile only, ancorado no topo da section -->
+  <div class="hero-eyebrow-mobile" aria-hidden="true">
+    <span class="section-eyebrow">Juba de Leão · Cordyceps militaris · 60ml · Dupla Extração</span>
+  </div>
+
   <div class="relative max-w-4xl mx-auto px-4 sm:px-6 w-full" style="z-index:2;">
     <div class="flex flex-col items-center">
 
       <!-- Text -->
       <div class="text-center">
-        <span class="section-eyebrow mb-4 block">Juba de Leão · Cordyceps militaris · 60ml · Dupla Extração</span>
+        <span class="section-eyebrow mb-4 block hero-eyebrow-desktop">Juba de Leão · Cordyceps militaris · 60ml · Dupla Extração</span>
 
         <h1 class="font-heading text-white leading-tight mb-6 hero-title" style="font-size:clamp(2.25rem,5vw,3.5rem);">
           <!-- Rotating words replacing "Clareza Mental. / Energia Pura." -->
           <span style="display:block;overflow:hidden;height:1.2em;">
             <span id="hero-rotate-inner" style="display:flex;flex-direction:column;">
-              <span class="hero-rotate-word">Bem-estar.</span>
-              <span class="hero-rotate-word gold">Foco.</span>
-              <span class="hero-rotate-word">Vitalidade.</span>
-              <span class="hero-rotate-word gold">Equilíbrio.</span>
+              <span class="hero-rotate-word">Bem-estar</span>
+              <span class="hero-rotate-word gold">Foco</span>
+              <span class="hero-rotate-word">Vitalidade</span>
+              <span class="hero-rotate-word gold">Equilíbrio</span>
             </span>
           </span>
           Da Natureza para Você.
@@ -1051,12 +1082,19 @@
         </div>
 
 
-        <!-- Trust micro-line -->
-        <p class="text-white/40 text-xs font-body mt-5 text-center">
+        <!-- Trust micro-line desktop -->
+        <p class="text-white/40 text-xs font-body mt-5 text-center hero-trust-desktop">
           🔒 Pagamento seguro · 🚚 Frete grátis acima de R$200 · 📦 Envio em até 2 dias úteis
         </p>
       </div>
     </div>
+  </div>
+
+  <!-- Trust: mobile only, ancorado no rodapé da section -->
+  <div class="hero-trust-mobile" aria-hidden="true">
+    <p class="text-white/40 text-xs font-body text-center">
+      🔒 Pagamento seguro · 🚚 Frete grátis acima de R$200 · 📦 Envio em até 2 dias úteis
+    </p>
   </div>
 </section>
 
