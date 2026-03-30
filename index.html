@@ -10,11 +10,10 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#2D4A10">
 
-  <!-- Preload LCP: imagem principal do hero mobile — antes de qualquer CSS/JS -->
+  <!-- Preload LCP mobile (400px): só dispara em telas ≤767px — URL idêntica ao <source media> abaixo -->
   <link rel="preload" as="image"
-        href="brand_assets/cogumelo-cultivo-3_v2-800.webp"
-        imagesrcset="brand_assets/cogumelo-cultivo-3_v2-400.webp 400w, brand_assets/cogumelo-cultivo-3_v2-800.webp 800w, brand_assets/cogumelo-cultivo-3_v2-1200.webp 1200w"
-        imagesizes="(max-width: 768px) 100vw, 1200px"
+        href="brand_assets/cogumelo-cultivo-3_v2-400.webp"
+        media="(max-width: 767px)"
         fetchpriority="high">
 
   <!-- dataLayer init antecipado — GTM carregado de forma adiada (ver script no body) -->
@@ -173,7 +172,6 @@
     #hero {
       background: #1e3408; /* fallback enquanto imagem não carrega */
       position: relative;
-      overflow: hidden;
     }
 
     /* ─── Section titles ────────────────────── */
@@ -1266,7 +1264,9 @@
             </p>
             <div class="mb-6 rounded-xl overflow-hidden h-44">
               <picture>
-                <source srcset="brand_assets/cogumelo-cultivo-3_v2-400.webp 400w, brand_assets/cogumelo-cultivo-3_v2-800.webp 800w, brand_assets/cogumelo-cultivo-3_v2-1200.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp">
+                <!-- mobile: força 400px (Moto G Power/iPhone) — URL idêntica ao preload no <head> -->
+                <source media="(max-width: 767px)" srcset="brand_assets/cogumelo-cultivo-3_v2-400.webp" type="image/webp">
+                <source srcset="brand_assets/cogumelo-cultivo-3_v2-800.webp 800w, brand_assets/cogumelo-cultivo-3_v2-1200.webp 1200w" sizes="1200px" type="image/webp">
                 <img src="brand_assets/cogumelo-cultivo-3_v2.jpg" alt="Cultivo de Juba de Leão Kodama — extrato líquido foco e clareza mental" class="w-full h-full object-cover" width="800" height="176" fetchpriority="high" loading="eager">
               </picture>
             </div>
