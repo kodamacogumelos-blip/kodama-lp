@@ -800,8 +800,24 @@
       z-index: 2;
       pointer-events: none;
     }
+    #produtos::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 400px;
+      background-image: url('brand_assets/cordyceps-grama-transparente.png');
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: contain;
+      opacity: 0.45;
+      z-index: 2;
+      pointer-events: none;
+    }
     @media (max-width: 767px) {
       #produtos::after { display: none; }
+      #produtos::before { display: none; }
     }
 
     /* ─── Kodama Coin banner v4 ─────────────── */
