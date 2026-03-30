@@ -764,7 +764,7 @@
       top: 0;
       bottom: 0;
       width: 450px;
-      background-image: url('brand_assets/juba-tronco-transparente.png');
+      background-image: url('brand_assets/juba-tronco-transparente.webp');
       background-repeat: no-repeat;
       background-position: right center;
       background-size: contain;
@@ -779,7 +779,7 @@
       top: 0;
       bottom: 0;
       width: 400px;
-      background-image: url('brand_assets/cordyceps-grama-transparente_v2.png');
+      background-image: url('brand_assets/cordyceps-grama-transparente_v2.webp');
       background-repeat: no-repeat;
       background-position: left center;
       background-size: contain;
@@ -1118,17 +1118,17 @@
       <!-- Left: Seletor de produto -->
       <div class="produto-seletor">
         <button class="produto-seletor-btn active" data-produto="juba" onclick="selecionarProduto('juba', this)">
-          <img src="brand_assets/juba-icone.png" alt="Juba de Leão" class="produto-thumb">
+          <picture><source srcset="brand_assets/juba-icone.webp" type="image/webp"><img src="brand_assets/juba-icone.png" alt="Juba de Leão" class="produto-thumb"></picture>
           <span class="produto-seletor-nome">Juba de Leão</span>
           <span class="produto-seletor-sub">Hericium erinaceus</span>
         </button>
         <button class="produto-seletor-btn" data-produto="cordyceps" onclick="selecionarProduto('cordyceps', this)">
-          <img src="brand_assets/cordyceps-icone.png" alt="Cordyceps" class="produto-thumb">
+          <picture><source srcset="brand_assets/cordyceps-icone.webp" type="image/webp"><img src="brand_assets/cordyceps-icone.png" alt="Cordyceps" class="produto-thumb"></picture>
           <span class="produto-seletor-nome">Cordyceps</span>
           <span class="produto-seletor-sub">Cordyceps militaris</span>
         </button>
         <button class="produto-seletor-btn" data-produto="kit" onclick="selecionarProduto('kit', this)">
-          <img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb">
+          <picture><source srcset="brand_assets/kit-icone.webp" type="image/webp"><img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb"></picture>
           <span class="produto-seletor-nome">Kit Essencial</span>
           <span class="produto-seletor-sub">Juba + Cordyceps</span>
         </button>
@@ -1248,7 +1248,10 @@
               Nosso produto é resultado de dupla extração, através de ciclos feitos em aparelhos modernos de ultrassom, permitindo a captura tanto de polissacarídeos (beta-glucanas) quanto de triterpenos, oferecendo o espectro mais completo possível em um único frasco de 60ml.
             </p>
             <div class="mb-6 rounded-xl overflow-hidden h-44">
-              <img src="brand_assets/cogumelo-cultivo-3_v2.jpg" alt="Cultivo de Juba de Leão Kodama — extrato líquido foco e clareza mental" class="w-full h-full object-cover" loading="lazy">
+              <picture>
+                <source srcset="brand_assets/cogumelo-cultivo-3_v2-mobile.webp 640w, brand_assets/cogumelo-cultivo-3_v2.webp 1280w" sizes="(max-width:640px) 640px, 1280px" type="image/webp">
+                <img src="brand_assets/cogumelo-cultivo-3_v2.jpg" alt="Cultivo de Juba de Leão Kodama — extrato líquido foco e clareza mental" class="w-full h-full object-cover" fetchpriority="high" loading="eager">
+              </picture>
             </div>
             <a href="#produtos"
                class="btn-primary" aria-label="Ver opções de Juba de Leão">
@@ -1328,7 +1331,10 @@
           <span class="text-white font-body font-bold text-sm">1</span>
         </div>
         <div class="mb-6 rounded-xl overflow-hidden h-48">
-          <img src="brand_assets/cogumelo-cultivo-2_v2.jpg" alt="Cultivo de cogumelos Kodama" class="w-full h-full object-cover" loading="lazy">
+          <picture>
+            <source srcset="brand_assets/cogumelo-cultivo-2_v2-mobile.webp 640w, brand_assets/cogumelo-cultivo-2_v2.webp 1280w" sizes="(max-width:640px) 640px, 1280px" type="image/webp">
+            <img src="brand_assets/cogumelo-cultivo-2_v2.jpg" alt="Cultivo de cogumelos Kodama" class="w-full h-full object-cover" loading="lazy">
+          </picture>
         </div>
         <h3 class="font-heading text-k-green text-xl font-bold mb-3">Cultivo Próprio</h3>
         <p class="font-body text-k-muted text-sm leading-relaxed">
@@ -1342,7 +1348,10 @@
           <span class="text-white font-body font-bold text-sm">2</span>
         </div>
         <div class="mb-6 rounded-xl overflow-hidden h-48">
-          <img src="brand_assets/extracao-juba.png" alt="Processo de extração Kodama" class="w-full h-full object-cover" loading="lazy">
+          <picture>
+            <source srcset="brand_assets/extracao-juba-mobile.webp 640w, brand_assets/extracao-juba.webp 1280w" sizes="(max-width:640px) 640px, 1280px" type="image/webp">
+            <img src="brand_assets/extracao-juba.png" alt="Processo de extração Kodama" class="w-full h-full object-cover" loading="lazy">
+          </picture>
         </div>
         <h3 class="font-heading text-k-green text-xl font-bold mb-3">Dupla Extração</h3>
         <p class="font-body text-k-muted text-sm leading-relaxed">
@@ -1356,7 +1365,10 @@
           <span class="text-white font-body font-bold text-sm">3</span>
         </div>
         <div class="mb-6 rounded-xl overflow-hidden h-48">
-          <img src="brand_assets/envio-caixa.png" alt="Entrega Kodama" class="w-full h-full object-cover" loading="lazy">
+          <picture>
+            <source srcset="brand_assets/envio-caixa-mobile.webp 640w, brand_assets/envio-caixa.webp 1280w" sizes="(max-width:640px) 640px, 1280px" type="image/webp">
+            <img src="brand_assets/envio-caixa.png" alt="Entrega Kodama" class="w-full h-full object-cover" loading="lazy">
+          </picture>
         </div>
         <h3 class="font-heading text-k-green text-xl font-bold mb-3">Entrega Garantida</h3>
         <p class="font-body text-k-muted text-sm leading-relaxed">
@@ -1391,7 +1403,10 @@
     <div class="mb-12">
       <div class="flex items-center gap-4 mb-6 reveal">
         <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-k-card">
-          <img src="brand_assets/cogumelo-cultivo-3_v2.jpg" alt="Cultivo Juba de Leão Kodama" class="w-full h-full object-cover" loading="lazy">
+          <picture>
+            <source srcset="brand_assets/cogumelo-cultivo-3_v2-mobile.webp 640w, brand_assets/cogumelo-cultivo-3_v2.webp 1280w" sizes="(max-width:640px) 640px, 1280px" type="image/webp">
+            <img src="brand_assets/cogumelo-cultivo-3_v2.jpg" alt="Cultivo Juba de Leão Kodama" class="w-full h-full object-cover" loading="lazy">
+          </picture>
         </div>
         <div>
           <div class="font-heading text-k-green text-xl font-bold">Juba de Leão</div>
@@ -2063,11 +2078,8 @@
   // ─── Get image src ───────────────────────────────────────────────────────────
   function getImg(tabKey, qty) {
     const p = PRODUCTS[tabKey];
-    if (tabKey === 'juba' || tabKey === 'cordyceps') {
-      return `${p.image_prefix}-${qty}un_v2.jpg`;
-    } else {
-      return `${p.image_prefix}-${qty}un_v2.jpg`;
-    }
+    const stem = `${p.image_prefix}-${qty}un_v2`;
+    return `${stem}.webp`;
   }
 
   // ─── Payment methods HTML (reused in product card) ───────────────────────────

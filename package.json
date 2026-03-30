@@ -2,10 +2,13 @@
   "name": "kodama-lp",
   "private": true,
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
+    "build:images": "node scripts/convert-images.mjs",
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
+    "build": "npm run build:images && npm run build:css",
     "watch": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch"
   },
   "devDependencies": {
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.17"
   }
 }
