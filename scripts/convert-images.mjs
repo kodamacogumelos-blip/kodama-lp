@@ -50,12 +50,20 @@ for (const file of allImageFiles) {
   const stem = basename(file, extname(file));
   const meta = await sharp(input).rotate().metadata();
 
-  // Versão 400px (mobile)
+  // Versão 400px (mobile 1x)
   if (meta.width > 400) {
     const out400 = join(assetsDir, `${stem}-400.webp`);
     await sharp(input).rotate().resize(400).webp({ quality: 70 }).toFile(out400);
     const kb = statSync(out400).size / 1024;
     console.log(`  └─ 400px: ${stem}-400.webp (${kb.toFixed(0)}KB)`);
+  }
+
+  // Versão 800px (mobile HiDPI / tablet)
+  if (meta.width > 800) {
+    const out800 = join(assetsDir, `${stem}-800.webp`);
+    await sharp(input).rotate().resize(800).webp({ quality: 75 }).toFile(out800);
+    const kb = statSync(out800).size / 1024;
+    console.log(`  └─ 800px: ${stem}-800.webp (${kb.toFixed(0)}KB)`);
   }
 
   // Versão 1200px (desktop)

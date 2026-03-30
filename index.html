@@ -111,7 +111,7 @@
     /* ─── Base ─────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    img, video { overflow: clip; } /* evita overflow:visible herdado de preflight */
+    img, video { overflow: clip !important; } /* força clip sobre qualquer regra de preflight */
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background-color: #F9F6F0;
@@ -252,7 +252,6 @@
       align-items: center;
       height: 52px;
       padding: 0 1.6rem;
-      overflow: visible;
       border-radius: 999px;
       font-family: 'Inter', sans-serif;
       font-size: 0.875rem;
@@ -291,7 +290,7 @@
       transform: translateY(-1px);
     }
     @media (max-width: 640px) {
-      .tab-btn { height: 48px; padding: 0 1.2rem; font-size: 0.82rem; overflow: visible; }
+      .tab-btn { height: 48px; padding: 0 1.2rem; font-size: 0.82rem; }
       .tab-btn[data-tab="juba"].active    { box-shadow: 0 0 15px rgba(201,184,140,0.5); }
       .tab-btn[data-tab="cordyceps"].active { box-shadow: 0 0 15px rgba(232,122,46,0.5); }
       .tab-btn[data-tab="kit"].active     { box-shadow: 0 0 15px rgba(197,164,78,0.5); }
@@ -952,29 +951,6 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <!-- GTM/Clarity carregados após primeira interação OU 3,5 segundos -->
-  <script>
-  (function(){
-    var done=false;
-    function load(){
-      if(done)return; done=true;
-      // Google Tag Manager
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W556LRV6');
-      // Microsoft Clarity
-      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window,document,'clarity','script','w2cxwoofsm');
-    }
-    ['scroll','mousemove','touchstart','click','keydown'].forEach(function(e){
-      window.addEventListener(e,load,{once:true,passive:true});
-    });
-    setTimeout(load,3500);
-  })();
-  </script>
 
 <!-- ════════════════════════════════════════════
      PROMO BAR
@@ -1064,8 +1040,8 @@
   <!-- Mobile: imagem estática (evita carregar 6.7MB de vídeo em 4G) -->
   <picture class="hero-img-mobile" aria-hidden="true"
            style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;">
-    <source srcset="brand_assets/floresta-hero_v2-400.webp 400w, brand_assets/floresta-hero_v2-1200.webp 1200w"
-            sizes="(max-width:640px) 400px, 1200px" type="image/webp">
+    <source srcset="brand_assets/floresta-hero_v2-400.webp 400w, brand_assets/floresta-hero_v2-800.webp 800w, brand_assets/floresta-hero_v2-1200.webp 1200w"
+            sizes="(max-width: 768px) 100vw, 1200px" type="image/webp">
     <img src="brand_assets/floresta-hero_v2.png" alt="" fetchpriority="high"
          style="width:100%;height:100%;object-fit:cover;display:block;">
   </picture>
@@ -1283,7 +1259,7 @@
             </p>
             <div class="mb-6 rounded-xl overflow-hidden h-44">
               <picture>
-                <source srcset="brand_assets/cogumelo-cultivo-3_v2-400.webp 400w, brand_assets/cogumelo-cultivo-3_v2-1200.webp 1200w" sizes="(max-width:640px) 400px, 1200px" type="image/webp">
+                <source srcset="brand_assets/cogumelo-cultivo-3_v2-400.webp 400w, brand_assets/cogumelo-cultivo-3_v2-800.webp 800w, brand_assets/cogumelo-cultivo-3_v2-1200.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp">
                 <img src="brand_assets/cogumelo-cultivo-3_v2.jpg" alt="Cultivo de Juba de Leão Kodama — extrato líquido foco e clareza mental" class="w-full h-full object-cover" width="800" height="176" fetchpriority="high" loading="eager">
               </picture>
             </div>
@@ -1366,7 +1342,7 @@
         </div>
         <div class="mb-6 rounded-xl overflow-hidden h-48">
           <picture>
-            <source srcset="brand_assets/cogumelo-cultivo-2_v2-400.webp 400w, brand_assets/cogumelo-cultivo-2_v2-1200.webp 1200w" sizes="(max-width:640px) 400px, 1200px" type="image/webp">
+            <source srcset="brand_assets/cogumelo-cultivo-2_v2-400.webp 400w, brand_assets/cogumelo-cultivo-2_v2-800.webp 800w, brand_assets/cogumelo-cultivo-2_v2-1200.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp">
             <img src="brand_assets/cogumelo-cultivo-2_v2.jpg" alt="Cultivo de cogumelos Kodama" class="w-full h-full object-cover" width="800" height="192" loading="lazy">
           </picture>
         </div>
@@ -1383,7 +1359,7 @@
         </div>
         <div class="mb-6 rounded-xl overflow-hidden h-48">
           <picture>
-            <source srcset="brand_assets/extracao-juba-400.webp 400w, brand_assets/extracao-juba-1200.webp 1200w" sizes="(max-width:640px) 400px, 1200px" type="image/webp">
+            <source srcset="brand_assets/extracao-juba-400.webp 400w, brand_assets/extracao-juba-800.webp 800w, brand_assets/extracao-juba-1200.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp">
             <img src="brand_assets/extracao-juba.png" alt="Processo de extração Kodama" class="w-full h-full object-cover" width="800" height="192" loading="lazy">
           </picture>
         </div>
@@ -1400,7 +1376,7 @@
         </div>
         <div class="mb-6 rounded-xl overflow-hidden h-48">
           <picture>
-            <source srcset="brand_assets/envio-caixa-400.webp 400w, brand_assets/envio-caixa-1200.webp 1200w" sizes="(max-width:640px) 400px, 1200px" type="image/webp">
+            <source srcset="brand_assets/envio-caixa-400.webp 400w, brand_assets/envio-caixa-800.webp 800w, brand_assets/envio-caixa-1200.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp">
             <img src="brand_assets/envio-caixa.png" alt="Entrega Kodama" class="w-full h-full object-cover" width="800" height="192" loading="lazy">
           </picture>
         </div>
@@ -1438,7 +1414,7 @@
       <div class="flex items-center gap-4 mb-6 reveal">
         <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-k-card">
           <picture>
-            <source srcset="brand_assets/cogumelo-cultivo-3_v2-400.webp 400w, brand_assets/cogumelo-cultivo-3_v2-1200.webp 1200w" sizes="(max-width:640px) 400px, 1200px" type="image/webp">
+            <source srcset="brand_assets/cogumelo-cultivo-3_v2-400.webp 400w, brand_assets/cogumelo-cultivo-3_v2-800.webp 800w, brand_assets/cogumelo-cultivo-3_v2-1200.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp">
             <img src="brand_assets/cogumelo-cultivo-3_v2.jpg" alt="Cultivo Juba de Leão Kodama" class="w-full h-full object-cover" width="56" height="56" loading="lazy">
           </picture>
         </div>
@@ -2561,6 +2537,27 @@
 })();
 </script>
 
+<!-- GTM/Clarity: carregados após primeira interação ou 3,5s (final do body = fora do critical path) -->
+<script>
+(function(){
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W556LRV6');
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,'clarity','script','w2cxwoofsm');
+  }
+  ['scroll','mousemove','touchstart','click','keydown'].forEach(function(e){
+    window.addEventListener(e,load,{once:true,passive:true});
+  });
+  setTimeout(load,3500);
+})();
+</script>
 </body>
 </html>
 
