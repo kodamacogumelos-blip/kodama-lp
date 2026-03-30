@@ -103,9 +103,9 @@
   }
   </script>
 
-  <!-- Tailwind CSS build — async: CSS crítico acima cobre hero + header -->
-  <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
+  <!-- Tailwind CSS build (render-blocking intencional — evita CLS) -->
+  <link rel="preload" href="/css/styles.css" as="style">
+  <link rel="stylesheet" href="/css/styles.css">
 
   <style>
     /* ─── Base ─────────────────────────────────── */
@@ -948,6 +948,10 @@
 
 <body class="font-body bg-k-bg text-k-text">
   <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W556LRV6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- GTM/Clarity carregados após primeira interação OU 3,5 segundos -->
   <script>
   (function(){
