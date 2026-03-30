@@ -110,6 +110,7 @@
     /* ─── Base ─────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    img, video { overflow: clip; } /* evita overflow:visible herdado de preflight */
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background-color: #F9F6F0;
