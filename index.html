@@ -983,6 +983,18 @@
 })();
 </script>
 
+<script>
+  function pushPurchaseEvent(value) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'purchase_data',
+      'value': value,
+      'currency': 'BRL',
+      'transaction_id': 'KDM-' + Date.now()
+    });
+  }
+</script>
+
 <!-- ════════════════════════════════════════════
      HEADER
 ════════════════════════════════════════════ -->
@@ -1834,20 +1846,20 @@
 
     <!-- Compact pricing cards -->
     <div class="grid grid-cols-3 gap-3 mb-8 max-w-lg mx-auto">
-      <a href="https://seguro.kodamacogumelos.com.br/r/ANFW4J0L33" target="_blank"
+      <a href="https://seguro.kodamacogumelos.com.br/r/ANFW4J0L33" target="_blank" onclick="pushPurchaseEvent(239.90)"
          class="block rounded-xl p-3 text-center border-2 border-k-gold/40 bg-white/10 hover:bg-white/20 transition-colors duration-150">
         <div class="text-white/60 text-xs font-body mb-1">3 frascos</div>
         <div class="text-k-gold font-body font-bold text-sm">R$239,90</div>
         <div class="text-white/50 text-xs font-body">–11%</div>
       </a>
-      <a href="https://seguro.kodamacogumelos.com.br/r/7JA3W3VQ85" target="_blank"
+      <a href="https://seguro.kodamacogumelos.com.br/r/7JA3W3VQ85" target="_blank" onclick="pushPurchaseEvent(369.90)"
          class="block rounded-xl p-3 text-center border-2 border-k-gold bg-white/15 hover:bg-white/25 transition-colors duration-150 relative">
         <div class="absolute -top-2 left-1/2 -translate-x-1/2 badge-popular text-xs px-2">Popular</div>
         <div class="text-white/60 text-xs font-body mb-1">5 frascos</div>
         <div class="text-k-gold font-body font-bold text-sm">R$369,90</div>
         <div class="text-white/50 text-xs font-body">–18%</div>
       </a>
-      <a href="https://seguro.kodamacogumelos.com.br/r/JPZARSAY9J" target="_blank"
+      <a href="https://seguro.kodamacogumelos.com.br/r/JPZARSAY9J" target="_blank" onclick="pushPurchaseEvent(699.90)"
          class="block rounded-xl p-3 text-center border-2 border-k-gold/40 bg-white/10 hover:bg-white/20 transition-colors duration-150">
         <div class="text-white/60 text-xs font-body mb-1">10 frascos</div>
         <div class="text-k-gold font-body font-bold text-sm">R$699,90</div>
@@ -2113,7 +2125,7 @@
       </div>
       <div class="opcoes-grid${produtoKey === 'kit' ? ' opcoes-grid-5' : ''}">${optsHtml}</div>
       <div class="cta-sticky-wrap mt-3 text-center">
-        <a id="cta-produto" href="${opt.link}" target="_blank" class="btn-primary text-base py-4 px-12">EU QUERO \u2014 COMPRAR AGORA</a>
+        <a id="cta-produto" href="${opt.link}" target="_blank" onclick="pushPurchaseEvent(${opt.total})" class="btn-primary text-base py-4 px-12">EU QUERO \u2014 COMPRAR AGORA</a>
       </div>
       <div class="payment-info mt-3 pt-3 text-center" style="border-top:1px solid rgba(0,0,0,0.07);">
         <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">${PAYMENT_HTML}</div>
