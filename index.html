@@ -159,6 +159,9 @@
     }
 
     /* ─── Header ─────────────────────────────── */
+    @media (max-width: 767px) {
+      #site-header .btn-primary.md\:inline-flex { display: none !important; }
+    }
     #site-header {
       background: rgba(249,246,240,0.96);
       backdrop-filter: blur(8px);
@@ -1019,7 +1022,12 @@
       <a href="#ciencia" class="hover:text-k-green transition-colors duration-150">Ciência</a>
       <a href="#faq" class="hover:text-k-green transition-colors duration-150">FAQ</a>
     </div>
+    <!-- Desktop CTA -->
     <a href="#produtos" class="btn-primary text-sm py-3 px-5 hidden md:inline-flex">
+      COMPRAR AGORA
+    </a>
+    <!-- Mobile CTA -->
+    <a href="#produtos" class="md:hidden btn-primary" style="font-size:0.75rem;padding:0.5rem 0.875rem;border-radius:6px;letter-spacing:0.04em;line-height:1;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;">
       COMPRAR AGORA
     </a>
     <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Abrir Menu">
