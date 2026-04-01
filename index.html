@@ -1215,12 +1215,14 @@
           <span class="produto-seletor-nome">Cordyceps</span>
           <span class="produto-seletor-sub">Cordyceps militaris</span>
         </button>
-        <button class="produto-seletor-btn" data-produto="kit" onclick="selecionarProduto('kit', this)" style="position:relative;">
-          <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#C8A96E,#a07830);color:#fff;font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;padding:0.2rem 0.55rem;border-radius:999px;box-shadow:0 2px 8px rgba(200,169,110,0.45);">🔥 Desconto Extra</span>
-          <picture><source srcset="brand_assets/kit-icone.webp" type="image/webp"><img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb" width="88" height="88"></picture>
-          <span class="produto-seletor-nome">Kit Essencial</span>
-          <span class="produto-seletor-sub">Juba + Cordyceps</span>
-        </button>
+        <div style="position:relative;">
+          <span style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);z-index:10;background:linear-gradient(90deg,#C8A96E,#a07830);color:#fff;font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;padding:0.2rem 0.55rem;border-radius:999px;box-shadow:0 2px 8px rgba(200,169,110,0.45);pointer-events:none;">🔥 Desconto Extra</span>
+          <button class="produto-seletor-btn" data-produto="kit" onclick="selecionarProduto('kit', this)">
+            <picture><source srcset="brand_assets/kit-icone.webp" type="image/webp"><img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb" width="88" height="88"></picture>
+            <span class="produto-seletor-nome">Kit Essencial</span>
+            <span class="produto-seletor-sub">Juba + Cordyceps</span>
+          </button>
+        </div>
       </div>
 
       <!-- Right: Card dinâmico -->
