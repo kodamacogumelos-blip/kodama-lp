@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado - Kodama Cogumelos</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand_assets/favicon_v2.png">
+
+    <!-- Meta tags -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#2D5E3F">
+
+    <!-- Google Tag Manager -->
+    <script>window.dataLayer = window.dataLayer || [];</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W556LRV6');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w2cxwoofsm");
+    </script>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(45, 94, 63, 0.15);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #2D5E3F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .checkmark svg {
+            width: 48px;
+            height: 48px;
+            stroke: white;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            animation: drawCheck 0.5s 0.3s ease-out forwards;
+            stroke-dasharray: 60;
+            stroke-dashoffset: 60;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes drawCheck {
+            to { stroke-dashoffset: 0; }
+        }
+
+        h1 {
+            color: #2D5E3F;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .info-value {
+            color: #2D5E3F;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .whatsapp-box {
+            background: linear-gradient(135deg, #1E7E34 0%, #128C7E 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .whatsapp-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .whatsapp-box strong {
+            font-size: 1.05rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #2D5E3F;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #F5C443;
+            color: #2D5E3F;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 94, 63, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2D5E3F;
+            border: 2px solid #2D5E3F;
+        }
+
+        .btn-secondary:hover {
+            background: #2D5E3F;
+            color: white;
+        }
+
+        .footer-note {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W556LRV6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+        <!-- Checkmark animado -->
+        <div class="checkmark">
+            <svg viewBox="0 0 52 52">
+                <polyline points="14 27 22 35 38 19"/>
+            </svg>
+        </div>
+
+        <!-- Título -->
+        <h1>Pedido Confirmado! 🎉</h1>
+        <p class="subtitle">
+            Obrigado pela sua compra! Seu pedido foi recebido e está sendo processado.
+        </p>
+
+        <!-- Box de informações do pedido -->
+        <div class="info-box">
+            <div class="info-item">
+                <span class="info-label">Número do pedido:</span>
+                <span class="info-value" id="order-id">Processando...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Status do pagamento:</span>
+                <span class="info-value" id="payment-status">Processando...</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Email de confirmação:</span>
+                <span class="info-value">Enviado ✓</span>
+            </div>
+        </div>
+
+        <!-- Box WhatsApp -->
+        <div class="whatsapp-box">
+            <p>
+                <strong>📦 Rastreamento e entrega</strong><br>
+                Você receberá todas as informações de frete e tempo estimado de entrega via WhatsApp.
+            </p>
+        </div>
+
+        <!-- Botões de ação -->
+        <div style="margin-top: 2rem;">
+            <a href="https://wa.me/5562981774481?text=Olá!%20Acabei%20de%20fazer%20um%20pedido%20e%20gostaria%20de%20confirmar."
+               class="btn btn-primary"
+               target="_blank" rel="noopener">
+                Falar no WhatsApp
+            </a>
+            <a href="/" class="btn btn-secondary">
+                Voltar à Loja
+            </a>
+        </div>
+
+        <!-- Nota do rodapé -->
+        <p class="footer-note">
+            Em caso de dúvidas, entre em contato pelo WhatsApp (62) 98177-4481<br>
+            Atendimento: Segunda a Sexta, 9h às 18h
+        </p>
+    </div>
+
+    <script>
+        // Capturar parâmetros da URL (Yampi envia como query string)
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const orderId = urlParams.get('order_id') ||
+                        urlParams.get('transaction') ||
+                        urlParams.get('tid') ||
+                        'Aguardando confirmação';
+
+        const paymentStatus = urlParams.get('status') ||
+                              urlParams.get('payment_status') ||
+                              'Em processamento';
+
+        document.getElementById('order-id').textContent = orderId;
+        document.getElementById('payment-status').textContent =
+            paymentStatus === 'approved' ? 'Aprovado ✓' :
+            paymentStatus === 'pending'  ? 'Aguardando pagamento' :
+            'Em processamento';
+
+        // Tracking de conversão via dataLayer (GTM já carregado no head)
+        window.dataLayer.push({
+            event: 'purchase',
+            transaction_id: orderId,
+            currency: 'BRL'
+        });
+
+        // Tracking no Clarity
+        if (typeof clarity !== 'undefined') {
+            clarity('set', 'pedido_confirmado', orderId);
+        }
+    </script>
+</body>
+</html>

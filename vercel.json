@@ -84,6 +84,14 @@
   ],
   "rewrites": [
     {
+      "source": "/obrigado",
+      "destination": "/obrigado.html"
+    },
+    {
+      "source": "/obrigado/",
+      "destination": "/obrigado.html"
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
