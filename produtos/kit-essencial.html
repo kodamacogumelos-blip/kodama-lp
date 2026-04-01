@@ -209,27 +209,22 @@
     #reputation-ra { max-width:200px; }
 
     /* Product hero */
-    .produto-hero {
-      position: relative;
-      background: #1e3408;
-      min-height: 420px;
-      display: flex;
-      align-items: center;
+    .produto-hero-img {
+      line-height: 0;
       overflow: hidden;
     }
-    .produto-hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('/brand_assets/floresta-hero-mobile_v1.webp');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.35;
+    .produto-hero-img img {
+      width: 100%;
+      display: block;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center 30%;
     }
-    .produto-hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(30,52,8,0.92) 0%, rgba(45,74,16,0.7) 100%);
-      z-index: 1;
+    .produto-hero-text {
+      background: #F9F6F0;
+      padding: 2.5rem 0 2.75rem;
+      border-bottom: 1px solid rgba(45,74,16,0.1);
     }
-    .produto-hero-content { position:relative; z-index:2; }
 
     /* CTA sticky mobile */
     @media (max-width:767px) {
@@ -358,27 +353,26 @@
   <main>
 
     <!-- HERO -->
-    <section class="produto-hero">
-      <div class="produto-hero-bg"></div>
-      <div class="produto-hero-overlay"></div>
-      <div class="produto-hero-content w-full max-w-6xl mx-auto px-6 py-16">
-        <div class="max-w-2xl">
-          <p class="section-eyebrow mb-3" style="color:#C8A96E;letter-spacing:0.22em;">COMPLEMENTARIDADE DE COMPOSTOS</p>
-          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem;">
-            Kit Essencial
-          </h1>
-          <p style="font-family:'Inter',sans-serif;font-size:1rem;color:rgba(255,255,255,0.75);margin-bottom:1.75rem;">
-            1 Juba de Leão + 1 Cordyceps · 2 × 60ml · Dupla Extração
-          </p>
-          <div class="flex flex-wrap gap-2 mb-8">
-            <span style="background:rgba(200,169,110,0.18);border:1px solid rgba(200,169,110,0.45);color:#C8A96E;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">💰 Economia de até 17%</span>
-            <span style="background:rgba(200,169,110,0.18);border:1px solid rgba(200,169,110,0.45);color:#C8A96E;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">🚚 Frete Grátis 2+ kits</span>
-            <span style="background:rgba(200,169,110,0.18);border:1px solid rgba(200,169,110,0.45);color:#C8A96E;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">🔬 Compostos Complementares</span>
-          </div>
-          <div class="flex flex-wrap gap-3">
-            <a href="#comprar" class="btn-primary">COMPRAR AGORA</a>
-            <a href="#combinacao" class="btn-secondary">Por que combinar? ↓</a>
-          </div>
+    <section class="produto-hero-img">
+      <img src="/brand_assets/floresta-hero-mobile_v1.webp" alt="Kit Essencial — Juba de Leão + Cordyceps | Kodama Cogumelos" width="1440" height="480" loading="eager">
+    </section>
+    <section class="produto-hero-text">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="section-eyebrow mb-3">COMPLEMENTARIDADE DE COMPOSTOS</p>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;color:#2D4A10;line-height:1.1;margin-bottom:0.75rem;">
+          Kit Essencial
+        </h1>
+        <p style="font-family:'Inter',sans-serif;font-size:1rem;color:#555;margin-bottom:1.5rem;">
+          1 Juba de Leão + 1 Cordyceps · 2 × 60ml · Dupla Extração
+        </p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span style="background:#f0fdf4;border:1px solid rgba(45,74,16,0.25);color:#2D4A10;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">💰 Economia de até 17%</span>
+          <span style="background:#f0fdf4;border:1px solid rgba(45,74,16,0.25);color:#2D4A10;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">🚚 Frete Grátis 2+ kits</span>
+          <span style="background:#f0fdf4;border:1px solid rgba(45,74,16,0.25);color:#2D4A10;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">🔬 Compostos Complementares</span>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#comprar" class="btn-primary">COMPRAR AGORA</a>
+          <a href="#combinacao" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#2D4A10;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;padding:0.75rem 1.75rem;border-radius:8px;border:2px solid #2D4A10;text-decoration:none;transition:background 0.2s,color 0.2s;">Por que combinar? ↓</a>
         </div>
       </div>
     </section>
