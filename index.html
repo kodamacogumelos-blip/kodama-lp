@@ -836,6 +836,52 @@
       .reclame-aqui-widget { margin: 1.5rem 0; }
     }
 
+    /* ─── Nav Dropdown ─────────────────────── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid #e8e0d0;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(45,74,16,0.12);
+      min-width: 190px;
+      z-index: 100;
+      overflow: hidden;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.85rem;
+      color: #1A1A1A;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { background: #f5f1ea; color: #2D4A10; }
+    .nav-dropdown-menu a + a { border-top: 1px solid #f0ebe0; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 0.7em; opacity: 0.6; }
+
+    /* ─── Mobile Menu sub-links ─────────────── */
+    .mobile-sub-link {
+      display: block;
+      padding: 0.5rem 0 0.5rem 1rem;
+      font-size: 0.85rem;
+      color: #555;
+      text-decoration: none;
+      border-left: 2px solid #C8A96E;
+      margin-left: 0.25rem;
+      transition: color 0.2s ease;
+    }
+    .mobile-sub-link:hover { color: #2D4A10; }
+    .mobile-sub-group { padding-bottom: 0.25rem; }
+
     /* ─── Mobile Menu ──────────────────────── */
     .mobile-menu-btn {
       display: none;
@@ -1017,7 +1063,14 @@
     </a>
     <div class="hidden md:flex items-center gap-6 text-sm font-body font-medium text-k-muted">
       <a href="sobre.html" class="hover:text-k-green transition-colors duration-150">Sobre Nós</a>
-      <a href="#produtos" class="hover:text-k-green transition-colors duration-150">Produtos</a>
+      <div class="nav-dropdown">
+        <a href="#produtos" class="hover:text-k-green transition-colors duration-150">Produtos</a>
+        <div class="nav-dropdown-menu">
+          <a href="/produtos/juba-leao">Juba de Leão</a>
+          <a href="/produtos/cordyceps">Cordyceps</a>
+          <a href="/produtos/kit-essencial">Kit Essencial</a>
+        </div>
+      </div>
       <a href="#como-funciona" class="hover:text-k-green transition-colors duration-150">Como funciona</a>
       <a href="#ciencia" class="hover:text-k-green transition-colors duration-150">Ciência</a>
       <a href="#faq" class="hover:text-k-green transition-colors duration-150">FAQ</a>
@@ -2508,6 +2561,11 @@
     <a href="index.html" class="mobile-menu-link active-page">Início</a>
     <a href="sobre.html" class="mobile-menu-link">Sobre Nós</a>
     <a href="#produtos" class="mobile-menu-link">Produtos</a>
+    <div class="mobile-sub-group">
+      <a href="/produtos/juba-leao" class="mobile-sub-link">Juba de Leão</a>
+      <a href="/produtos/cordyceps" class="mobile-sub-link">Cordyceps</a>
+      <a href="/produtos/kit-essencial" class="mobile-sub-link">Kit Essencial</a>
+    </div>
     <a href="#como-funciona" class="mobile-menu-link">Como Funciona</a>
     <a href="#ciencia" class="mobile-menu-link">Ciência</a>
     <a href="#faq" class="mobile-menu-link">FAQ</a>
