@@ -30,7 +30,7 @@
         })(window, document, "clarity", "script", "w2cxwoofsm");
     </script>
 
-    <!-- Yampi Thank You Script -->
+    <!-- Yampi Thank You Script (conversion tracking) -->
     <script>
         var yampiThankYouScript = document.createElement('script');
         yampiThankYouScript.setAttribute('src', 'https://cdn.yampi.me/thankyou/thankyou.min.js');
@@ -42,9 +42,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(160deg, #f5f7fa 0%, #e8f5e9 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -53,18 +55,18 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 560px;
             width: 100%;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(45, 94, 63, 0.15);
-            padding: 3rem 2rem;
+            box-shadow: 0 10px 48px rgba(45, 94, 63, 0.13);
+            padding: 2.5rem 2rem;
             text-align: center;
         }
 
         .checkmark {
-            width: 80px;
-            height: 80px;
+            width: 72px;
+            height: 72px;
             border-radius: 50%;
             background: #2D5E3F;
             display: flex;
@@ -75,8 +77,8 @@
         }
 
         .checkmark svg {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             stroke: white;
             stroke-width: 3;
             stroke-linecap: round;
@@ -97,107 +99,140 @@
         }
 
         h1 {
-            color: #2D5E3F;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #2D4A10;
+            font-size: 1.85rem;
+            font-weight: 900;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
         }
 
         .subtitle {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .info-box {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .info-item:last-child {
-            border-bottom: none;
-        }
-
-        .info-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .info-value {
-            color: #2D5E3F;
-            font-weight: 600;
+            color: #555;
             font-size: 1rem;
+            margin-bottom: 1.75rem;
+            line-height: 1.65;
         }
 
-        .whatsapp-box {
+        /* WhatsApp / Dama info box */
+        .dama-box {
             background: linear-gradient(135deg, #1E7E34 0%, #128C7E 100%);
             color: white;
-            border-radius: 12px;
-            padding: 1.25rem;
-            margin: 2rem 0;
+            border-radius: 14px;
+            padding: 1.4rem 1.25rem;
+            margin: 0 0 1.5rem;
+            text-align: left;
+            display: flex;
+            gap: 0.9rem;
+            align-items: flex-start;
         }
-
-        .whatsapp-box p {
+        .dama-box .icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .dama-box p {
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+        .dama-box strong {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Coupon box */
+        .coupon-box {
+            background: #fefce8;
+            border: 2px dashed #C8A96E;
+            border-radius: 14px;
+            padding: 1.25rem 1.25rem 1.1rem;
+            margin: 0 0 1.75rem;
+            text-align: center;
+        }
+        .coupon-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #7A5700;
+            margin-bottom: 0.5rem;
+        }
+        .coupon-code {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #2D4A10;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+        }
+        .coupon-desc {
+            font-size: 0.82rem;
+            color: #666;
             line-height: 1.5;
+            margin-bottom: 0.85rem;
         }
-
-        .whatsapp-box strong {
-            font-size: 1.05rem;
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #2D4A10;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
         }
+        .copy-btn:hover { background: #3D6B1A; }
+        .copy-btn[data-copied="1"] { background: #128C7E; }
 
+        /* Action buttons */
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
+            padding: 0.875rem 1.75rem;
+            border-radius: 10px;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 0.5rem;
-            font-size: 1rem;
+            transition: all 0.25s ease;
+            margin: 0.35rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
         }
-
         .btn-primary {
-            background: #2D5E3F;
+            background: #2D4A10;
             color: white;
         }
-
         .btn-primary:hover {
-            background: #F5C443;
-            color: #2D5E3F;
+            background: #3D6B1A;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(45, 94, 63, 0.3);
+            box-shadow: 0 6px 20px rgba(45, 74, 16, 0.3);
         }
-
         .btn-secondary {
             background: white;
-            color: #2D5E3F;
-            border: 2px solid #2D5E3F;
+            color: #2D4A10;
+            border: 2px solid #2D4A10;
         }
-
         .btn-secondary:hover {
-            background: #2D5E3F;
+            background: #2D4A10;
             color: white;
         }
 
         .footer-note {
             color: #999;
-            font-size: 0.85rem;
-            margin-top: 2rem;
+            font-size: 0.8rem;
+            margin-top: 1.75rem;
             line-height: 1.5;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+            margin: 1.5rem 0;
         }
     </style>
 </head>
@@ -208,6 +243,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
+
         <!-- Checkmark animado -->
         <div class="checkmark">
             <svg viewBox="0 0 52 52">
@@ -216,44 +252,37 @@
         </div>
 
         <!-- Título -->
-        <h1>Obrigado, %%customer_first_name%%! 🎉</h1>
+        <h1>Pedido confirmado!</h1>
         <p class="subtitle">
-            Seu pedido <strong>#%%sale_number%%</strong> foi confirmado e está sendo processado com carinho.
+            Seu pedido foi recebido com sucesso e já está sendo preparado com todo o cuidado da nossa equipe em Goiânia-GO.
         </p>
 
-        <!-- Box de informações do pedido -->
-        <div class="info-box">
-            <div class="info-item">
-                <span class="info-label">Número do pedido:</span>
-                <span class="info-value" id="order-id">%%sale_number%%</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Valor total:</span>
-                <span class="info-value">R$ %%sale_amount%%</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Forma de pagamento:</span>
-                <span class="info-value" id="payment-method">
-                    <span id="payment-type"></span>
-                    <span id="installments-info"></span>
-                </span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Email de confirmação:</span>
-                <span class="info-value">%%customer_email%% ✓</span>
+        <!-- Box Dama / WhatsApp -->
+        <div class="dama-box">
+            <span class="icon">💬</span>
+            <div>
+                <strong>A Dama vai te avisar por WhatsApp</strong>
+                Nossa assistente Dama entrará em contato pelo WhatsApp com o código de rastreio, link de acompanhamento e o prazo estimado de entrega assim que seu pedido for despachado.
             </div>
         </div>
 
-        <!-- Box WhatsApp -->
-        <div class="whatsapp-box">
-            <p>
-                <strong>📦 Rastreamento e entrega</strong><br>
-                Você receberá todas as informações de frete e tempo estimado de entrega via WhatsApp.
+        <!-- Cupom de segunda compra -->
+        <div class="coupon-box">
+            <p class="coupon-label">🎁 Presente para você</p>
+            <div class="coupon-code">2COMPRA</div>
+            <p class="coupon-desc">
+                <strong>Guarda esse cupom!</strong> Use na sua próxima compra para ganhar um desconto especial. Válido para qualquer produto Kodama.
             </p>
+            <button class="copy-btn" onclick="copyCoupon(this)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copiar cupom
+            </button>
         </div>
+
+        <div class="divider"></div>
 
         <!-- Botões de ação -->
-        <div style="margin-top: 2rem;">
+        <div>
             <a href="https://wa.me/5562981774481?text=Olá!%20Acabei%20de%20fazer%20um%20pedido%20e%20gostaria%20de%20confirmar."
                class="btn btn-primary"
                target="_blank" rel="noopener">
@@ -272,79 +301,33 @@
     </div>
 
     <script>
-        // Aguardar script Yampi carregar
-        window.addEventListener('load', function() {
-            // Aguardar 500ms para garantir que variáveis Yampi foram processadas
-            setTimeout(function() {
+        function copyCoupon(btn) {
+            navigator.clipboard.writeText('2COMPRA').then(function () {
+                btn.dataset.copied = '1';
+                btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copiado!';
+                setTimeout(function () {
+                    btn.dataset.copied = '';
+                    btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar cupom';
+                }, 3000);
+            }).catch(function () {
+                // fallback for browsers without clipboard API
+                var ta = document.createElement('textarea');
+                ta.value = '2COMPRA';
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                btn.dataset.copied = '1';
+                btn.textContent = '✓ Copiado!';
+            });
+        }
 
-                // Detectar método de pagamento
-                const paymentMethod = '%%payment%%';
-                const installments = '%%installments%%';
-                const barcodeElement = document.getElementById('payment-type');
-                const installmentsElement = document.getElementById('installments-info');
-
-                if (barcodeElement) {
-                    if (paymentMethod === 'billet' || paymentMethod.includes('boleto')) {
-                        barcodeElement.textContent = 'Boleto Bancário';
-
-                        // Se tiver URL do boleto, mostrar botão
-                        const barcodeUrl = '%%billet_url%%';
-                        if (barcodeUrl && !barcodeUrl.includes('%%')) {
-                            const boletoBtn = document.createElement('a');
-                            boletoBtn.href = barcodeUrl;
-                            boletoBtn.target = '_blank';
-                            boletoBtn.className = 'btn btn-primary';
-                            boletoBtn.style.marginTop = '1rem';
-                            boletoBtn.innerHTML = '📄 Ver Boleto';
-                            document.querySelector('.info-box').after(boletoBtn);
-                        }
-
-                    } else if (paymentMethod === 'credit_card' || paymentMethod.includes('credit')) {
-                        barcodeElement.textContent = 'Cartão de Crédito';
-
-                        if (installments && !installments.includes('%%')) {
-                            const installmentsNum = parseInt(installments);
-                            if (installmentsNum > 1) {
-                                installmentsElement.textContent = ` (${installmentsNum}x)`;
-                            }
-                        }
-
-                    } else if (paymentMethod === 'pix' || paymentMethod.includes('pix')) {
-                        barcodeElement.textContent = 'Pix';
-                    } else {
-                        barcodeElement.textContent = paymentMethod || 'Processando';
-                    }
-                }
-
-                // Fallback: se variáveis Yampi não carregaram, usar URL params
-                const orderId = document.getElementById('order-id');
-                if (orderId && orderId.textContent.includes('%%')) {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    orderId.textContent = urlParams.get('order_id') ||
-                                         urlParams.get('transaction') ||
-                                         'Aguardando confirmação';
-                }
-
-                // Tracking de conversão via dataLayer (GTM já carregado no head)
-                const saleNumber = '%%sale_number%%';
-                const saleAmount = '%%sale_amount%%';
-
-                window.dataLayer.push({
-                    event: 'purchase',
-                    transaction_id: saleNumber.includes('%%') ? 'unknown' : saleNumber,
-                    value: saleAmount.includes('%%') ? 0 : parseFloat(saleAmount.replace(',', '.')),
-                    currency: 'BRL'
-                });
-
-                // Tracking no Clarity
-                if (typeof clarity !== 'undefined') {
-                    if (!saleNumber.includes('%%')) {
-                        clarity('set', 'pedido_confirmado', saleNumber);
-                        clarity('set', 'metodo_pagamento', paymentMethod);
-                    }
-                }
-
-            }, 500);
+        // Disparo de evento de conversão no GTM
+        window.dataLayer.push({
+            event: 'purchase',
+            currency: 'BRL'
         });
     </script>
 </body>
