@@ -76,6 +76,50 @@
     @media (max-width: 767px) {
       #site-header .btn-primary.md\:inline-flex { display: none !important; }
     }
+    @media (min-width: 768px) {
+      #site-header a.md\:hidden { display: none !important; }
+    }
+
+    /* Nav Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid #e8e0d0;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(45,74,16,0.12);
+      min-width: 190px;
+      z-index: 100;
+      overflow: hidden;
+      padding-top: 8px;
+    }
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 0; right: 0;
+      height: 8px;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.85rem;
+      color: #1A1A1A;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { background: #f5f1ea; color: #2D4A10; }
+    .nav-dropdown-menu a + a { border-top: 1px solid #f0ebe0; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 0.7em; opacity: 0.6; }
+
     #site-header {
       background: rgba(249,246,240,0.96);
       backdrop-filter: blur(8px);
@@ -291,7 +335,14 @@
       </a>
       <div class="hidden md:flex items-center gap-6 text-sm font-body font-medium text-k-muted">
         <a href="/sobre" class="hover:text-k-green transition-colors duration-150">Sobre Nós</a>
-        <a href="/#produtos" class="hover:text-k-green transition-colors duration-150">Produtos</a>
+        <div class="nav-dropdown">
+          <a href="/#produtos" class="hover:text-k-green transition-colors duration-150">Produtos</a>
+          <div class="nav-dropdown-menu">
+            <a href="/produtos/juba-leao">Juba de Leão</a>
+            <a href="/produtos/cordyceps">Cordyceps</a>
+            <a href="/produtos/kit-essencial">Kit Essencial</a>
+          </div>
+        </div>
         <a href="/#como-funciona" class="hover:text-k-green transition-colors duration-150">Como funciona</a>
         <a href="/#ciencia" class="hover:text-k-green transition-colors duration-150">Ciência</a>
         <a href="/#faq" class="hover:text-k-green transition-colors duration-150">FAQ</a>
@@ -514,7 +565,7 @@
 
     <!-- CARD DE COMPRA -->
     <section id="comprar" class="py-20" style="background:#fff;">
-      <div class="max-w-2xl mx-auto px-6">
+      <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-8 reveal">
           <p class="section-eyebrow mb-3">ESCOLHA SUA QUANTIDADE</p>
           <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#2D4A10;margin-bottom:0.5rem;">

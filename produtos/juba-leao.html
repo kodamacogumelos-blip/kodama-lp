@@ -76,6 +76,49 @@
     @media (max-width: 767px) {
       #site-header .btn-primary.md\:inline-flex { display: none !important; }
     }
+    @media (min-width: 768px) {
+      #site-header a.md\:hidden { display: none !important; }
+    }
+
+    /* Nav Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid #e8e0d0;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(45,74,16,0.12);
+      min-width: 190px;
+      z-index: 100;
+      overflow: hidden;
+      padding-top: 8px;
+    }
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 0; right: 0;
+      height: 8px;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.85rem;
+      color: #1A1A1A;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { background: #f5f1ea; color: #2D4A10; }
+    .nav-dropdown-menu a + a { border-top: 1px solid #f0ebe0; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 0.7em; opacity: 0.6; }
     #site-header {
       background: rgba(249,246,240,0.96);
       backdrop-filter: blur(8px);
@@ -159,27 +202,22 @@
     #reputation-ra { max-width:200px; }
 
     /* Product page hero */
-    .produto-hero {
-      position: relative;
-      background: #1e3408;
-      min-height: 420px;
-      display: flex;
-      align-items: center;
+    .produto-hero-img {
+      line-height: 0;
       overflow: hidden;
     }
-    .produto-hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('/brand_assets/juba-banner_v2.jpg');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.35;
+    .produto-hero-img img {
+      width: 100%;
+      display: block;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center 30%;
     }
-    .produto-hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(30,52,8,0.92) 0%, rgba(45,74,16,0.7) 100%);
-      z-index: 1;
+    .produto-hero-text {
+      background: #F9F6F0;
+      padding: 2.5rem 0 2.75rem;
+      border-bottom: 1px solid rgba(45,74,16,0.1);
     }
-    .produto-hero-content { position:relative; z-index:2; }
 
     /* Composto item */
     .composto-item {
@@ -273,7 +311,14 @@
       </a>
       <div class="hidden md:flex items-center gap-6 text-sm font-body font-medium text-k-muted">
         <a href="/sobre" class="hover:text-k-green transition-colors duration-150">Sobre Nós</a>
-        <a href="/#produtos" class="hover:text-k-green transition-colors duration-150">Produtos</a>
+        <div class="nav-dropdown">
+          <a href="/#produtos" class="hover:text-k-green transition-colors duration-150">Produtos</a>
+          <div class="nav-dropdown-menu">
+            <a href="/produtos/juba-leao">Juba de Leão</a>
+            <a href="/produtos/cordyceps">Cordyceps</a>
+            <a href="/produtos/kit-essencial">Kit Essencial</a>
+          </div>
+        </div>
         <a href="/#como-funciona" class="hover:text-k-green transition-colors duration-150">Como funciona</a>
         <a href="/#ciencia" class="hover:text-k-green transition-colors duration-150">Ciência</a>
         <a href="/#faq" class="hover:text-k-green transition-colors duration-150">FAQ</a>
@@ -289,27 +334,26 @@
   <main>
 
     <!-- HERO -->
-    <section class="produto-hero">
-      <div class="produto-hero-bg"></div>
-      <div class="produto-hero-overlay"></div>
-      <div class="produto-hero-content w-full max-w-6xl mx-auto px-6 py-16">
-        <div class="max-w-2xl">
-          <p class="section-eyebrow mb-3" style="color:#C8A96E;letter-spacing:0.22em;">HERICIUM ERINACEUS</p>
-          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem;">
-            Juba de Leão
-          </h1>
-          <p style="font-family:'Inter',sans-serif;font-size:1rem;color:rgba(255,255,255,0.75);margin-bottom:1.75rem;">
-            Extrato Líquido · 60ml · Dupla Extração Hidroalcoólica
-          </p>
-          <div class="flex flex-wrap gap-2 mb-8">
-            <span style="background:rgba(200,169,110,0.18);border:1px solid rgba(200,169,110,0.45);color:#C8A96E;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">🌱 Cultivo Próprio · Goiânia-GO</span>
-            <span style="background:rgba(200,169,110,0.18);border:1px solid rgba(200,169,110,0.45);color:#C8A96E;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">📋 Rastreabilidade Total</span>
-            <span style="background:rgba(200,169,110,0.18);border:1px solid rgba(200,169,110,0.45);color:#C8A96E;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">🔬 Análise por Lote</span>
-          </div>
-          <div class="flex flex-wrap gap-3">
-            <a href="#comprar" class="btn-primary">COMPRAR AGORA</a>
-            <a href="#beneficios" class="btn-secondary">Saiba mais ↓</a>
-          </div>
+    <section class="produto-hero-img">
+      <img src="/brand_assets/juba-banner_v2.jpg" alt="Juba de Leão — Extrato Líquido de Hericium erinaceus" width="1440" height="480" loading="eager">
+    </section>
+    <section class="produto-hero-text">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="section-eyebrow mb-3">HERICIUM ERINACEUS</p>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;color:#2D4A10;line-height:1.1;margin-bottom:0.75rem;">
+          Juba de Leão
+        </h1>
+        <p style="font-family:'Inter',sans-serif;font-size:1rem;color:#555;margin-bottom:1.5rem;">
+          Extrato Líquido · 60ml · Dupla Extração Hidroalcoólica
+        </p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span style="background:#f0fdf4;border:1px solid rgba(45,74,16,0.25);color:#2D4A10;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">🌱 Cultivo Próprio · Goiânia-GO</span>
+          <span style="background:#f0fdf4;border:1px solid rgba(45,74,16,0.25);color:#2D4A10;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">📋 Rastreabilidade Total</span>
+          <span style="background:#f0fdf4;border:1px solid rgba(45,74,16,0.25);color:#2D4A10;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:999px;">🔬 Análise por Lote</span>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#comprar" class="btn-primary">COMPRAR AGORA</a>
+          <a href="#beneficios" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#2D4A10;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;padding:0.75rem 1.75rem;border-radius:8px;border:2px solid #2D4A10;text-decoration:none;transition:background 0.2s,color 0.2s;">Saiba mais ↓</a>
         </div>
       </div>
     </section>
@@ -469,7 +513,7 @@
 
     <!-- CARD DE COMPRA -->
     <section id="comprar" class="py-20" style="background:#fff;">
-      <div class="max-w-2xl mx-auto px-6">
+      <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-8 reveal">
           <p class="section-eyebrow mb-3">ESCOLHA SUA QUANTIDADE</p>
           <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#2D4A10;margin-bottom:0.5rem;">

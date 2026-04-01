@@ -841,7 +841,7 @@
     .nav-dropdown-menu {
       display: none;
       position: absolute;
-      top: calc(100% + 8px);
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
       background: white;
@@ -851,9 +851,22 @@
       min-width: 190px;
       z-index: 100;
       overflow: hidden;
+      padding-top: 8px;
+    }
+    /* invisible bridge prevents hover gap from closing menu */
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 0; right: 0;
+      height: 8px;
     }
     .nav-dropdown:hover .nav-dropdown-menu,
     .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+    /* fix duplicate button: mobile btn-primary overrides md:hidden due to specificity */
+    @media (min-width: 768px) {
+      #site-header a.md\:hidden { display: none !important; }
+    }
     .nav-dropdown-menu a {
       display: block;
       padding: 0.65rem 1.1rem;
