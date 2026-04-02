@@ -4,4 +4,13 @@ Disallow: /screenshots/
 Disallow: /obrigado/
 Disallow: /obrigado.html
 
+User-agent: Googlebot
+Allow: /
+Disallow: /screenshots/
+Disallow: /obrigado/
+
+User-agent: Googlebot-image
+Allow: /brand_assets/
+Allow: /
+
 Sitemap: https://kodamacogumelos.com.br/sitemap-kodama.xml
