@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /screenshots/
+Disallow: /obrigado/
+Disallow: /obrigado.html
 
 Sitemap: https://kodamacogumelos.com.br/sitemap-kodama.xml

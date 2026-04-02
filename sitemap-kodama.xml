@@ -3,38 +3,37 @@
 
   <url>
     <loc>https://kodamacogumelos.com.br/</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://kodamacogumelos.com.br/sobre</loc>
-  </url>
-
-  <url>
-    <loc>https://kodamacogumelos.com.br/privacidade</loc>
-  </url>
-
-  <url>
-    <loc>https://kodamacogumelos.com.br/politicas-de-privacidade</loc>
-  </url>
-
-  <url>
-    <loc>https://kodamacogumelos.com.br/termos</loc>
-  </url>
-
-  <url>
     <loc>https://kodamacogumelos.com.br/produtos/juba-leao</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://kodamacogumelos.com.br/produtos/cordyceps</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://kodamacogumelos.com.br/produtos/kit-essencial</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://kodamacogumelos.com.br/sobre</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
