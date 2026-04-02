@@ -1,11 +1,60 @@
 User-agent: *
 Allow: /
+Allow: /produtos/
+Allow: /sobre
+Allow: /privacidade
+Allow: /termos
+Allow: /brand_assets/
+Allow: /sitemap-kodama.xml
+
+# Bloquear WordPress e PHP legado
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-login.php
+Disallow: /wp-cron.php
+Disallow: /xmlrpc.php
+Disallow: /*.php$
+
+# Bloquear caminhos de spam/cassino indexados anteriormente
+Disallow: /metodo-matematico/
+Disallow: /roleta/
+Disallow: /jogo-da-roleta/
+Disallow: /cassino/
+Disallow: /casino/
+Disallow: /caca-niqueis/
+Disallow: /cacaniqueis/
+Disallow: /slots/
+Disallow: /poker/
+Disallow: /apostas/
+Disallow: /bet/
+Disallow: /bingo/
+Disallow: /loteria/
+
+# Bloquear arquivos internos
 Disallow: /screenshots/
 Disallow: /obrigado/
 Disallow: /obrigado.html
+Disallow: /src/
+Disallow: /scripts/
 
 User-agent: Googlebot
 Allow: /
+Allow: /produtos/
+Allow: /brand_assets/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /*.php$
+Disallow: /metodo-matematico/
+Disallow: /roleta/
+Disallow: /jogo-da-roleta/
+Disallow: /cassino/
+Disallow: /casino/
+Disallow: /caca-niqueis/
+Disallow: /slots/
+Disallow: /poker/
+Disallow: /apostas/
 Disallow: /screenshots/
 Disallow: /obrigado/
 
