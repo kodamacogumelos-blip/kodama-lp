@@ -624,7 +624,11 @@
     .hero-video-desktop { display: block; }
     @media (max-width: 767px) {
       .hero-video-desktop { display: none; }
-      .hero-img-mobile { display: block; }
+      .hero-video-mobile { display: block; }
+      .hero-overlay,
+      .hero-text-content,
+      .hero-eyebrow-mobile,
+      .hero-trust-mobile { display: none !important; }
     }
     @media (max-width: 767px) {
       .coin-banner-wrap {
@@ -1202,22 +1206,25 @@
          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;">
     <source src="brand_assets/hero_forest_background_v2.mp4" type="video/mp4">
   </video>
-  <!-- Mobile: imagem estática (evita carregar 6.7MB de vídeo em 4G) -->
-  <picture class="hero-img-mobile" aria-hidden="true"
-           style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;">
-    <source srcset="brand_assets/floresta-hero-mobile_v1.webp" type="image/webp">
-    <img src="brand_assets/floresta-hero-mobile_v1.webp" alt="" fetchpriority="high"
-         style="width:100%;height:100%;object-fit:cover;display:block;">
-  </picture>
-  <!-- Dark overlay for text readability -->
-  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;pointer-events:none;" aria-hidden="true"></div>
+  <!-- Mobile: YouTube Short (vídeo da visita na fazenda — maior conversão) -->
+  <div class="hero-video-mobile" aria-hidden="true"
+       style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;">
+    <iframe src="https://www.youtube.com/embed/UzchgflFo-8?autoplay=1&mute=1&loop=1&playlist=UzchgflFo-8&controls=0&playsinline=1&rel=0&modestbranding=1"
+            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(56.25vh);height:100vh;min-width:100%;min-height:100%;border:none;"
+            allow="autoplay; encrypted-media"
+            loading="lazy"
+            title="Kodama Cogumelos — produção">
+    </iframe>
+  </div>
+  <!-- Dark overlay for text readability (hidden on mobile — video speaks for itself) -->
+  <div class="hero-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;pointer-events:none;" aria-hidden="true"></div>
 
   <!-- Eyebrow: mobile only, ancorado no topo da section -->
   <div class="hero-eyebrow-mobile">
     <span class="section-eyebrow">Juba de Leão · Cordyceps militaris · 60ml · Dupla Extração</span>
   </div>
 
-  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 w-full" style="z-index:2;">
+  <div class="hero-text-content relative max-w-4xl mx-auto px-4 sm:px-6 w-full" style="z-index:2;">
     <div class="flex flex-col items-center">
 
       <!-- Text -->
