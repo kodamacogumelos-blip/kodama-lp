@@ -336,7 +336,7 @@
       <span class="opacity-40">|</span>
       <span class="inline-block ml-3">🔒 Pagamento 100% Seguro</span>
     </p>
-    <div class="sm:hidden" style="position:relative;height:1.4rem;overflow:hidden;">
+    <div class="sm:hidden" style="position:relative;min-height:2.25rem;overflow:hidden;">
       <span class="promo-slide text-white text-sm font-medium" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity 0.4s;">🚚 Frete GRÁTIS acima de R$200</span>
       <span class="promo-slide text-white text-sm font-medium" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.4s;">💳 Parcele em até 3x sem juros</span>
       <span class="promo-slide text-white text-sm font-medium" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.4s;">🔒 Pagamento 100% Seguro</span>
@@ -382,10 +382,14 @@
 
     <!-- HERO -->
     <section class="produto-hero-img">
-      <img src="/brand_assets/juba-banner_v2.jpg" alt="Juba de Leão — Extrato Líquido de Hericium erinaceus" width="1440" height="480" loading="eager">
+      <picture>
+        <source media="(max-width:767px)" srcset="/brand_assets/juba-hero_v2.webp" type="image/webp">
+        <source srcset="/brand_assets/juba-banner_v2.jpg">
+        <img src="/brand_assets/juba-banner_v2.jpg" alt="Juba de Leão — Extrato Líquido de Hericium erinaceus" width="1440" height="480" loading="eager">
+      </picture>
     </section>
     <section class="produto-hero-text">
-      <div class="max-w-5xl mx-auto px-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <p class="section-eyebrow mb-3">HERICIUM ERINACEUS</p>
         <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;color:#2D4A10;line-height:1.1;margin-bottom:0.75rem;">
           Juba de Leão
@@ -583,7 +587,7 @@
 
     <!-- FAQ -->
     <section id="faq" class="py-20" style="background:#F9F6F0;">
-      <div class="max-w-3xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-12 reveal">
           <p class="section-eyebrow mb-3">DÚVIDAS FREQUENTES</p>
           <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#2D4A10;margin-bottom:1rem;">
@@ -592,6 +596,12 @@
           <hr class="divider-gold" style="max-width:120px;margin:1.5rem auto 0;">
         </div>
         <div class="flex flex-col gap-4">
+
+          <!-- Categoria: Produto -->
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7A5700;background:rgba(200,169,110,0.14);padding:0.2rem 0.65rem;border-radius:999px;white-space:nowrap;">🍄 Sobre o Produto</span>
+            <div style="flex:1;height:1px;background:rgba(45,74,16,0.1);"></div>
+          </div>
 
           <div class="faq-item reveal" style="background:#fff;border-radius:12px;padding:1.25rem 1.5rem;box-shadow:0 2px 12px rgba(45,74,16,0.06);">
             <details>
@@ -641,6 +651,12 @@
               </summary>
               <p style="font-family:'Inter',sans-serif;font-size:0.9rem;color:#4A4A4A;line-height:1.7;margin-top:1rem;">Cultivado sem agrotóxicos, em substrato natural certificado. O cultivo controlado garante ausência de contaminantes externos.</p>
             </details>
+          </div>
+
+          <!-- Categoria: Regulatório -->
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-top:0.5rem;">
+            <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7A5700;background:rgba(200,169,110,0.14);padding:0.2rem 0.65rem;border-radius:999px;white-space:nowrap;">📋 Regulatório</span>
+            <div style="flex:1;height:1px;background:rgba(45,74,16,0.1);"></div>
           </div>
 
           <div class="faq-item reveal" style="background:#fff;border-radius:12px;padding:1.25rem 1.5rem;box-shadow:0 2px 12px rgba(45,74,16,0.06);transition-delay:0.25s;">

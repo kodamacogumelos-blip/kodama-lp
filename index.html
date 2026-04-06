@@ -1382,18 +1382,18 @@
       <!-- Left: Seletor de produto -->
       <div class="produto-seletor">
         <button class="produto-seletor-btn active" data-produto="juba" onclick="selecionarProduto('juba', this)">
-          <picture><source srcset="brand_assets/juba-icone.webp" type="image/webp"><img src="brand_assets/juba-icone.png" alt="Juba de Leão" class="produto-thumb" width="104" height="104"></picture>
+          <picture><source srcset="brand_assets/juba-icone.webp" type="image/webp"><img src="brand_assets/juba-icone.png" alt="Juba de Leão" class="produto-thumb" width="104" height="104" loading="lazy"></picture>
           <span class="produto-seletor-nome">Juba de Leão</span>
           <span class="produto-seletor-sub">Hericium erinaceus</span>
         </button>
         <button class="produto-seletor-btn" data-produto="cordyceps" onclick="selecionarProduto('cordyceps', this)">
-          <picture><source srcset="brand_assets/cordyceps-icone.webp" type="image/webp"><img src="brand_assets/cordyceps-icone.png" alt="Cordyceps" class="produto-thumb" width="104" height="104"></picture>
+          <picture><source srcset="brand_assets/cordyceps-icone.webp" type="image/webp"><img src="brand_assets/cordyceps-icone.png" alt="Cordyceps" class="produto-thumb" width="104" height="104" loading="lazy"></picture>
           <span class="produto-seletor-nome">Cordyceps</span>
           <span class="produto-seletor-sub">Cordyceps militaris</span>
         </button>
         <button class="produto-seletor-btn" data-produto="kit" onclick="selecionarProduto('kit', this)" style="position:relative;">
           <span style="position:absolute;top:4px;left:50%;transform:translateX(-50%);z-index:10;background:linear-gradient(90deg,#C8A96E,#a07830);color:#fff;font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;padding:0.15rem 0.45rem;border-radius:999px;pointer-events:none;">🔥 Desconto</span>
-          <picture><source srcset="brand_assets/kit-icone.webp" type="image/webp"><img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb" width="88" height="88"></picture>
+          <picture><source srcset="brand_assets/kit-icone.webp" type="image/webp"><img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb" width="88" height="88" loading="lazy"></picture>
           <span class="produto-seletor-nome">Kit Essencial</span>
           <span class="produto-seletor-sub">Juba + Cordyceps</span>
         </button>
@@ -1428,26 +1428,35 @@
 <!-- ════════════════════════════════════════════
      SOCIAL PROOF BAR
 ════════════════════════════════════════════ -->
-<section class="py-10 bg-white border-y border-k-bg-warm">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
-    <p class="text-center section-eyebrow mb-8">A escolha de quem busca excelência</p>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="reveal flex flex-col items-center gap-2">
-        <div class="text-3xl font-heading font-bold text-k-green">2.800+</div>
-        <div class="text-xs font-body font-semibold uppercase tracking-wider text-k-muted">Clientes satisfeitos</div>
+<section style="background:#fff;border-top:1px solid rgba(45,74,16,0.08);border-bottom:1px solid rgba(45,74,16,0.08);padding:2.5rem 0;">
+  <div style="max-width:60rem;margin:0 auto;padding:0 1rem;">
+    <p class="text-center section-eyebrow" style="margin-bottom:1.5rem;">A escolha de quem busca excelência</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;">
+
+      <div class="reveal" style="background:#f7f5f0;border-radius:14px;padding:1.25rem 1rem;text-align:center;border:1px solid rgba(45,74,16,0.07);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🌿</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;color:#2D4A10;line-height:1;">2.800+</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A5700;margin-top:0.35rem;">Clientes satisfeitos</div>
       </div>
-      <div class="reveal flex flex-col items-center gap-2">
-        <div class="flex stars text-2xl justify-center">★★★★★</div>
-        <div class="text-xs font-body font-semibold uppercase tracking-wider text-k-muted"><a href="https://www.google.com/maps/place/Kodama+Cogumelos/@-16.6359927,-49.2755646,17z/data=!4m18!1m9!3m8!1s0x935e8b85614647cb:0xf4e93308effe0e0e!2sKodama+Cogumelos!8m2!3d-16.6359979!4d-49.2729897!9m1!1b1!16s%2Fg%2F11wwf9mgbf!3m7!1s0x935e8b85614647cb:0xf4e93308effe0e0e!8m2!3d-16.6359979!4d-49.2729897!9m1!1b1!16s%2Fg%2F11wwf9mgbf?entry=ttu" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">5 estrelas no Google</a></div>
+
+      <div class="reveal" style="background:#f7f5f0;border-radius:14px;padding:1.25rem 1rem;text-align:center;border:1px solid rgba(45,74,16,0.07);">
+        <div style="color:#C8A96E;font-size:1.25rem;letter-spacing:0.08em;margin-bottom:0.5rem;">★★★★★</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;color:#2D4A10;line-height:1;">5,0</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A5700;margin-top:0.35rem;"><a href="https://www.google.com/maps/place/Kodama+Cogumelos/@-16.6359927,-49.2755646,17z/data=!4m18!1m9!3m8!1s0x935e8b85614647cb:0xf4e93308effe0e0e!2sKodama+Cogumelos!8m2!3d-16.6359979!4d-49.2729897!9m1!1b1!16s%2Fg%2F11wwf9mgbf!3m7!1s0x935e8b85614647cb:0xf4e93308effe0e0e!8m2!3d-16.6359979!4d-49.2729897!9m1!1b1!16s%2Fg%2F11wwf9mgbf?entry=ttu" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">5 Estrelas no Google</a></div>
       </div>
-      <div class="reveal flex flex-col items-center gap-2">
-        <div class="text-3xl font-heading font-bold text-k-green">100%</div>
-        <div class="text-xs font-body font-semibold uppercase tracking-wider text-k-muted">Produção Nacional</div>
+
+      <div class="reveal" style="background:#f7f5f0;border-radius:14px;padding:1.25rem 1rem;text-align:center;border:1px solid rgba(45,74,16,0.07);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🇧🇷</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;color:#2D4A10;line-height:1;">100%</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A5700;margin-top:0.35rem;">Produção Nacional</div>
       </div>
-      <div class="reveal flex flex-col items-center gap-2">
-        <div class="text-3xl font-heading font-bold text-k-green">📦 Envio Rápido</div>
-        <div class="text-xs font-body font-semibold uppercase tracking-wider text-k-muted">Para todo o Brasil</div>
+
+      <div class="reveal" style="background:#f7f5f0;border-radius:14px;padding:1.25rem 1rem;text-align:center;border:1px solid rgba(45,74,16,0.07);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">📦</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;color:#2D4A10;line-height:1.2;">Envio<br>Rápido</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A5700;margin-top:0.35rem;">Para todo o Brasil</div>
       </div>
+
     </div>
   </div>
 </section>
@@ -2057,19 +2066,13 @@
 
     <div class="space-y-3">
 
-      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm">
-        <details>
-          <summary class="p-6 font-body font-semibold text-k-text text-base">
-            <span>Os produtos são registrados na ANVISA?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="px-6 pb-6">
-            <p class="font-body text-k-muted text-sm leading-relaxed">Os extratos Kodama são classificados como <strong>produtos alimentícios isentos de registro</strong>, conforme a Resolução RDC nº 843/2024 da ANVISA. Isso significa que, por se enquadrarem nas categorias isentas da legislação brasileira, não necessitam de registro prévio. Nossa produção segue rigorosos padrões de qualidade, rastreabilidade e boas práticas de fabricação.</p>
-          </div>
-        </details>
+      <!-- Categoria: Produto -->
+      <div style="display:flex;align-items:center;gap:0.75rem;padding-bottom:0.25rem;">
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7A5700;background:rgba(200,169,110,0.14);padding:0.2rem 0.65rem;border-radius:999px;white-space:nowrap;">🍄 Sobre o Produto</span>
+        <div style="flex:1;height:1px;background:rgba(45,74,16,0.1);"></div>
       </div>
 
-      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.05s">
+      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm">
         <details>
           <summary class="p-6 font-body font-semibold text-k-text text-base">
             <span>Como usar o extrato de Juba de Leão?</span>
@@ -2081,19 +2084,7 @@
         </details>
       </div>
 
-      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.1s">
-        <details>
-          <summary class="p-6 font-body font-semibold text-k-text text-base">
-            <span>Em quanto tempo recebo meu pedido?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="px-6 pb-6">
-            <p class="font-body text-k-muted text-sm leading-relaxed">Após confirmação do pagamento, enviamos em até <strong>1 dia útil</strong>. Para Goiânia e todo o estado de Goiás, o envio é sempre realizado via <strong>SEDEX</strong>, chegando em até 1 dia útil após a postagem. Para DF, SP, MG, RJ, PR, SC e RS, o prazo estimado é de <strong>4 a 9 dias úteis</strong>. Para regiões mais isoladas e Norte/Nordeste, o prazo varia de <strong>9 a 15 dias úteis</strong>. O rastreamento é enviado automaticamente via <strong>WhatsApp</strong> assim que o objeto é preparado para envio. Qualquer dúvida, entre em contato pelo <a href="https://wa.me/5562981774481" target="_blank" rel="noopener" class="text-k-green underline hover:text-k-green-mid">Fale Conosco</a>.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.15s">
+      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.05s">
         <details>
           <summary class="p-6 font-body font-semibold text-k-text text-base">
             <span>Por que dupla extração é superior à extração simples?</span>
@@ -2105,7 +2096,7 @@
         </details>
       </div>
 
-      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.2s">
+      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.1s">
         <details>
           <summary class="p-6 font-body font-semibold text-k-text text-base">
             <span>O produto tem contraindicações ou efeitos adversos?</span>
@@ -2117,7 +2108,25 @@
         </details>
       </div>
 
-      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.25s">
+      <!-- Categoria: Envio & Pagamento -->
+      <div style="display:flex;align-items:center;gap:0.75rem;padding-top:0.5rem;padding-bottom:0.25rem;">
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7A5700;background:rgba(200,169,110,0.14);padding:0.2rem 0.65rem;border-radius:999px;white-space:nowrap;">🚚 Envio & Pagamento</span>
+        <div style="flex:1;height:1px;background:rgba(45,74,16,0.1);"></div>
+      </div>
+
+      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.15s">
+        <details>
+          <summary class="p-6 font-body font-semibold text-k-text text-base">
+            <span>Em quanto tempo recebo meu pedido?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="font-body text-k-muted text-sm leading-relaxed">Após confirmação do pagamento, enviamos em até <strong>1 dia útil</strong>. Para Goiânia e todo o estado de Goiás, o envio é sempre realizado via <strong>SEDEX</strong>, chegando em até 1 dia útil após a postagem. Para DF, SP, MG, RJ, PR, SC e RS, o prazo estimado é de <strong>4 a 9 dias úteis</strong>. Para regiões mais isoladas e Norte/Nordeste, o prazo varia de <strong>9 a 15 dias úteis</strong>. O rastreamento é enviado automaticamente via <strong>WhatsApp</strong> assim que o objeto é preparado para envio. Qualquer dúvida, entre em contato pelo <a href="https://wa.me/5562981774481" target="_blank" rel="noopener" class="text-k-green underline hover:text-k-green-mid">Fale Conosco</a>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.2s">
         <details>
           <summary class="p-6 font-body font-semibold text-k-text text-base">
             <span>Como funciona o frete e o brinde Kodama Coin?</span>
@@ -2125,6 +2134,24 @@
           </summary>
           <div class="px-6 pb-6">
             <p class="font-body text-k-muted text-sm leading-relaxed"><strong>Frete:</strong> R$14,90 para todo o Brasil em pedidos até R$199,99. Frete GRÁTIS em pedidos acima de R$200 (a partir de 3 unidades de Juba ou Cordyceps, ou 2 kits).<br><br><strong>Kodama Coin:</strong> Um imã de geladeira colecionável + cupom de desconto surpresa enviado junto ao pedido, exclusivo para compras de 3 ou mais unidades do mesmo produto.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Categoria: Regulatório -->
+      <div style="display:flex;align-items:center;gap:0.75rem;padding-top:0.5rem;padding-bottom:0.25rem;">
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7A5700;background:rgba(200,169,110,0.14);padding:0.2rem 0.65rem;border-radius:999px;white-space:nowrap;">📋 Regulatório</span>
+        <div style="flex:1;height:1px;background:rgba(45,74,16,0.1);"></div>
+      </div>
+
+      <div class="faq-item reveal bg-white rounded-2xl overflow-hidden shadow-k-card border border-k-bg-warm" style="transition-delay:0.25s">
+        <details>
+          <summary class="p-6 font-body font-semibold text-k-text text-base">
+            <span>Os produtos são registrados na ANVISA?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="font-body text-k-muted text-sm leading-relaxed">Os extratos Kodama são classificados como <strong>produtos alimentícios isentos de registro</strong>, conforme a Resolução RDC nº 843/2024 da ANVISA. Isso significa que, por se enquadrarem nas categorias isentas da legislação brasileira, não necessitam de registro prévio. Nossa produção segue rigorosos padrões de qualidade, rastreabilidade e boas práticas de fabricação.</p>
           </div>
         </details>
       </div>
