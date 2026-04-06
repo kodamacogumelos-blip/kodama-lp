@@ -364,11 +364,11 @@
       background: #C8A96E;
       color: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 0.1rem 0.35rem;
+      padding: 0.15rem 0.4rem;
       border-radius: 999px;
     }
     .badge-coin {
@@ -378,19 +378,19 @@
       background: linear-gradient(135deg, #2D4A10, #3D6B1A);
       color: #C8A96E;
       font-family: 'Inter', sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.04em;
-      padding: 0.1rem 0.35rem;
+      padding: 0.15rem 0.4rem;
       border-radius: 999px;
     }
     .badge-discount {
       background: #2D4A10;
       color: #fff;
       font-family: 'Inter', sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      padding: 0.1rem 0.35rem;
+      padding: 0.15rem 0.4rem;
       border-radius: 4px;
     }
 
@@ -792,8 +792,8 @@
       }
       .produto-seletor-nome { font-size: 0.78rem; }
       .produto-seletor-sub { display: none; }
-      .produto-thumb { width: 40px !important; height: 40px !important; transform: scale(1.65); flex-shrink: 0; }
-      .kit-thumb { width: 34px !important; height: 34px !important; transform: scale(1.65); flex-shrink: 0; }
+      .produto-thumb { width: 52px !important; height: 52px !important; transform: none; flex-shrink: 0; }
+      .kit-thumb { width: 44px !important; height: 44px !important; transform: none; flex-shrink: 0; }
 
       /* Compact card */
       .produto-card {
@@ -1095,6 +1095,47 @@
     }
     .mobile-cta-btn:hover { background: #3D6B1A; transform: translateY(-1px); }
     body.menu-open { overflow: hidden; }
+
+    /* ─── Mobile: reduz padding vertical excessivo ── */
+    @media (max-width: 767px) {
+      .py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+      .py-28 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+      .sm\:py-28 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+      body { padding-bottom: 72px; } /* espaço para o sticky buy bar */
+    }
+
+    /* ─── Sticky buy bar mobile ─────────────────── */
+    #sticky-buy-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: #fff;
+      border-top: 1px solid rgba(45,74,16,0.12);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+      padding: 0.75rem 1rem;
+    }
+    #sticky-buy-bar a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.875rem 1rem;
+      background: #2D4A10;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(45,74,16,0.35);
+    }
+    @media (max-width: 767px) {
+      #sticky-buy-bar { display: block; }
+    }
   </style>
 
 </head>
@@ -1334,14 +1375,12 @@
           <span class="produto-seletor-nome">Cordyceps</span>
           <span class="produto-seletor-sub">Cordyceps militaris</span>
         </button>
-        <div style="position:relative;">
-          <span style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);z-index:10;background:linear-gradient(90deg,#C8A96E,#a07830);color:#fff;font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;padding:0.2rem 0.55rem;border-radius:999px;box-shadow:0 2px 8px rgba(200,169,110,0.45);pointer-events:none;">🔥 Desconto Extra</span>
-          <button class="produto-seletor-btn" data-produto="kit" onclick="selecionarProduto('kit', this)">
-            <picture><source srcset="brand_assets/kit-icone.webp" type="image/webp"><img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb" width="88" height="88"></picture>
-            <span class="produto-seletor-nome">Kit Essencial</span>
-            <span class="produto-seletor-sub">Juba + Cordyceps</span>
-          </button>
-        </div>
+        <button class="produto-seletor-btn" data-produto="kit" onclick="selecionarProduto('kit', this)" style="position:relative;">
+          <span style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);z-index:10;background:linear-gradient(90deg,#C8A96E,#a07830);color:#fff;font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;padding:0.2rem 0.55rem;border-radius:999px;box-shadow:0 2px 8px rgba(200,169,110,0.45);pointer-events:none;">🔥 Desconto</span>
+          <picture><source srcset="brand_assets/kit-icone.webp" type="image/webp"><img src="brand_assets/kit-icone.png" alt="Kit Essencial" class="produto-thumb kit-thumb" width="88" height="88"></picture>
+          <span class="produto-seletor-nome">Kit Essencial</span>
+          <span class="produto-seletor-sub">Juba + Cordyceps</span>
+        </button>
       </div>
 
       <!-- Right: Card dinâmico -->
@@ -2415,11 +2454,36 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }
 
+  // ─── Sticky buy bar (mobile only) ─────────────────────────────────────────
+  function initStickyBuyBar() {
+    if (window.innerWidth > 767) return;
+    const bar = document.getElementById('sticky-buy-bar');
+    if (!bar) return;
+    const hero = document.querySelector('.hero-mobile-only');
+    if (!hero) return;
+    const obs = new IntersectionObserver((entries) => {
+      // Esconde a bar enquanto o hero está visível, mostra depois
+      bar.style.transform = entries[0].isIntersecting ? 'translateY(100%)' : 'translateY(0)';
+      bar.style.transition = 'transform 0.3s ease';
+    }, { threshold: 0 });
+    obs.observe(hero);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     init();
     initReveal();
+    initStickyBuyBar();
   });
 </script>
+
+<!-- ════════════════════════════════════════════
+     STICKY BUY BAR (mobile only — aparece após hero)
+════════════════════════════════════════════ -->
+<div id="sticky-buy-bar" aria-hidden="true">
+  <a href="#produtos" onclick="this.closest('#sticky-buy-bar').setAttribute('aria-hidden','false')">
+    🍄 ESCOLHER MEU EXTRATO
+  </a>
+</div>
 
 <!-- ════════════════════════════════════════════
      FLOATING WHATSAPP BUTTON
