@@ -1145,6 +1145,9 @@
     }
   </style>
 
+  <!-- Preload: thumbnail do vídeo hero mobile — é o LCP em mobile -->
+  <link rel="preload" as="image" href="https://i.ytimg.com/vi/UzchgflFo-8/hqdefault.jpg" media="(max-width:767px)" fetchpriority="high">
+
 </head>
 
 <body class="font-body bg-k-bg text-k-text">
@@ -1259,10 +1262,10 @@
   <!-- Mobile: YouTube Short (vídeo da visita na fazenda — maior conversão) -->
   <div class="hero-video-mobile" aria-hidden="true"
        style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;">
-    <iframe src="https://www.youtube.com/embed/UzchgflFo-8?autoplay=1&mute=1&loop=1&playlist=UzchgflFo-8&controls=0&playsinline=1&rel=0&modestbranding=1"
+    <iframe data-src="https://www.youtube.com/embed/UzchgflFo-8?autoplay=1&mute=1&loop=1&playlist=UzchgflFo-8&controls=0&playsinline=1&rel=0&modestbranding=1"
             style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(56.25vh);height:100vh;min-width:100%;min-height:100%;border:none;"
             allow="autoplay; encrypted-media"
-            loading="lazy"
+            tabindex="-1"
             title="Kodama Cogumelos — produção">
     </iframe>
   </div>
@@ -1345,15 +1348,27 @@
     <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:#5A5A5A;line-height:1.5;margin:0;">Juba de Leão &amp; Cordyceps — dupla extração</p>
   </div>
 
-  <!-- Player -->
-  <div style="position:relative;width:100%;padding-top:177.78%;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(45,74,16,0.18);">
-    <iframe src="https://www.youtube.com/embed/UzchgflFo-8"
-            title="Kodama Cogumelos — visita à fazenda"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy"
-            style="position:absolute;inset:0;width:100%;height:100%;border:0;">
-    </iframe>
+  <!-- Player: facade (thumbnail + play button → iframe só carrega no clique) -->
+  <div id="yt-hero-facade"
+       style="position:relative;width:100%;padding-top:177.78%;border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:0 8px 32px rgba(45,74,16,0.18);"
+       onclick="kodamaPlayYT(this)"
+       role="button"
+       aria-label="Reproduzir vídeo — Visita à fazenda Kodama">
+    <img src="https://i.ytimg.com/vi/UzchgflFo-8/hqdefault.jpg"
+         alt="Vídeo: visita à fazenda Kodama em Goiânia — Da Terra ao Frasco"
+         width="480" height="360"
+         fetchpriority="high"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+    <!-- Botão play estilo YouTube -->
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.06);">
+      <div style="width:68px;height:48px;background:rgba(220,0,0,0.92);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.45);">
+        <svg viewBox="0 0 24 24" style="width:26px;height:26px;fill:#fff;margin-left:3px;" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <!-- Caption -->
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:0.6rem 0.85rem;background:linear-gradient(transparent,rgba(0,0,0,0.55));pointer-events:none;">
+      <span style="font-family:'Inter',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.88);font-weight:500;">📍 Visita à fazenda Kodama · Goiânia-GO</span>
+    </div>
   </div>
 
   <!-- CTA full width -->
@@ -2520,10 +2535,34 @@
     obs.observe(hero);
   }
 
+  // ─── YouTube facade: carrega iframe só no clique (mobile hero) ───────────────
+  window.kodamaPlayYT = function(el) {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube.com/embed/UzchgflFo-8?autoplay=1&rel=0&playsinline=1';
+    f.setAttribute('style', 'position:absolute;inset:0;width:100%;height:100%;border:0;');
+    f.setAttribute('allow', 'autoplay;encrypted-media;gyroscope;picture-in-picture');
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('title', 'Kodama Cogumelos — visita à fazenda');
+    el.style.cursor = 'default';
+    el.removeAttribute('onclick');
+    el.removeAttribute('role');
+    el.removeAttribute('aria-label');
+    el.innerHTML = '';
+    el.appendChild(f);
+  };
+
+  // ─── Desktop: carrega iframe de fundo só em viewport ≥ 768px ─────────────
+  function initDesktopBgVideo() {
+    if (window.innerWidth < 768) return;
+    var bgFrame = document.querySelector('.hero-video-mobile iframe[data-src]');
+    if (bgFrame) { bgFrame.src = bgFrame.getAttribute('data-src'); }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     init();
     initReveal();
     initStickyBuyBar();
+    initDesktopBgVideo();
   });
 </script>
 
