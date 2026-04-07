@@ -95,7 +95,7 @@
         "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "BR"},
         "deliveryTime": {
           "@type": "ShippingDeliveryTime",
-          "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY"},
+          "handlingTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY"},
           "transitTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 15, "unitCode": "DAY"}
         }
       },
@@ -129,7 +129,7 @@
         "name": "Em quanto tempo recebo meu pedido?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Enviamos em até 1 dia útil após confirmação do pagamento. Para Goiânia e Goiás via SEDEX em até 1 dia útil após postagem. DF, SP, MG, RJ, PR, SC, RS: 4 a 9 dias úteis. Norte/Nordeste e regiões isoladas: 9 a 15 dias úteis."
+          "text": "Enviamos em até 2 dias úteis após confirmação do pagamento. Para Goiânia e Goiás via SEDEX em até 1 dia útil após postagem. DF, SP, MG, RJ, PR, SC, RS: 4 a 9 dias úteis. Norte/Nordeste e regiões isoladas: 9 a 15 dias úteis."
         }
       }
     ]
@@ -1165,7 +1165,7 @@
 <div id="promo-bar" class="py-2 px-4 text-center">
   <!-- Desktop: all items side by side -->
   <p class="hidden sm:block text-white text-sm font-medium font-body relative" style="z-index:1;">
-    <span class="inline-block mr-3">⚡ Despacho em 1 dia útil</span>
+    <span class="inline-block mr-3">⚡ Despacho em até 2 dias úteis</span>
     <span class="opacity-40">|</span>
     <span class="inline-block mx-3">🚚 Frete GRÁTIS acima de R$200</span>
     <span class="opacity-40">|</span>
@@ -1175,7 +1175,7 @@
   </p>
   <!-- Mobile: carousel -->
   <div class="sm:hidden" style="position:relative;min-height:2.25rem;overflow:hidden;">
-    <span class="promo-slide text-white text-sm font-medium font-body" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity 0.4s;">⚡ Despacho em 1 dia útil</span>
+    <span class="promo-slide text-white text-sm font-medium font-body" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity 0.4s;">⚡ Despacho em até 2 dias úteis</span>
     <span class="promo-slide text-white text-sm font-medium font-body" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.4s;">🚚 Frete GRÁTIS acima de R$200</span>
     <span class="promo-slide text-white text-sm font-medium font-body" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.4s;">💳 Parcele em até 3x sem juros</span>
     <span class="promo-slide text-white text-sm font-medium font-body" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.4s;">🔒 Pagamento 100% Seguro</span>
@@ -1551,7 +1551,7 @@ if (window.innerWidth >= 1024) {
             <span class="faq-icon">+</span>
           </summary>
           <div class="px-6 pb-6">
-            <p class="font-body text-k-muted text-sm leading-relaxed">Após confirmação do pagamento, enviamos em até <strong>1 dia útil</strong>. Para Goiânia e todo o estado de Goiás, o envio é sempre realizado via <strong>SEDEX</strong>, chegando em até 1 dia útil após a postagem. Para DF, SP, MG, RJ, PR, SC e RS, o prazo estimado é de <strong>4 a 9 dias úteis</strong>. Para regiões mais isoladas e Norte/Nordeste, o prazo varia de <strong>9 a 15 dias úteis</strong>. O rastreamento é enviado automaticamente via <strong>WhatsApp</strong> assim que o objeto é preparado para envio. Qualquer dúvida, entre em contato pelo <a href="https://wa.me/5562981774481" target="_blank" rel="noopener" class="text-k-green underline hover:text-k-green-mid">Fale Conosco</a>.</p>
+            <p class="font-body text-k-muted text-sm leading-relaxed">Após confirmação do pagamento, enviamos em até <strong>2 dias úteis</strong>. Para Goiânia e todo o estado de Goiás, o envio é sempre realizado via <strong>SEDEX</strong>, chegando em até 1 dia útil após a postagem. Para DF, SP, MG, RJ, PR, SC e RS, o prazo estimado é de <strong>4 a 9 dias úteis</strong>. Para regiões mais isoladas e Norte/Nordeste, o prazo varia de <strong>9 a 15 dias úteis</strong>. O rastreamento é enviado automaticamente via <strong>WhatsApp</strong> assim que o objeto é preparado para envio. Qualquer dúvida, entre em contato pelo <a href="https://wa.me/5562981774481" target="_blank" rel="noopener" class="text-k-green underline hover:text-k-green-mid">Fale Conosco</a>.</p>
           </div>
         </details>
       </div>
@@ -2343,7 +2343,7 @@ if (window.innerWidth >= 1024) {
       </p>
       <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;">
         <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:#2D4A10;"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Produto com qualidade verificada</span>
-        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:#2D4A10;"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Despacho em até 1 dia útil</span>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:#2D4A10;"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Despacho em até 2 dias úteis</span>
         <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;color:#2D4A10;"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Atendimento humano via WhatsApp</span>
       </div>
     </div>
@@ -2685,7 +2685,7 @@ if (window.innerWidth >= 1024) {
       <div class="opcoes-grid${produtoKey === 'kit' ? ' opcoes-grid-5' : ''}">${optsHtml}</div>
       <div class="cta-sticky-wrap mt-3 text-center">
         <a id="cta-produto" href="${opt.link}" target="_blank" onclick="pushPurchaseEvent(${opt.total})" class="btn-primary text-base py-4 px-12">EU QUERO \u2014 GARANTIR AGORA</a>
-        <p style="font-family:'Inter',sans-serif;font-size:0.68rem;color:#8A8A8A;margin-top:0.4rem;">⚡ Despacho em 1 dia útil &nbsp;·&nbsp; 🔒 Compra 100% segura</p>
+        <p style="font-family:'Inter',sans-serif;font-size:0.68rem;color:#8A8A8A;margin-top:0.4rem;">⚡ Despacho em até 2 dias úteis &nbsp;·&nbsp; 🔒 Compra 100% segura</p>
       </div>
       <div class="payment-info mt-3 pt-3 text-center" style="border-top:1px solid rgba(0,0,0,0.07);">
         <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">${PAYMENT_HTML}</div>
