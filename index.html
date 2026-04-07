@@ -1146,7 +1146,6 @@
   </style>
 
   <!-- Preload: thumbnail do vídeo hero mobile — é o LCP em mobile -->
-  <link rel="preload" as="image" href="https://i.ytimg.com/vi/UzchgflFo-8/maxresdefault.jpg" media="(max-width:767px)" fetchpriority="high">
 
 </head>
 
@@ -1358,10 +1357,10 @@
        onclick="kodamaPlayYT(this)"
        role="button"
        aria-label="Reproduzir vídeo — Visita à fazenda Kodama">
-    <img src="https://i.ytimg.com/vi/UzchgflFo-8/maxresdefault.jpg"
+    <img src="https://i.ytimg.com/vi/UzchgflFo-8/hqdefault.jpg"
          alt="Vídeo: visita à fazenda Kodama em Goiânia — Da Terra ao Frasco"
-         width="1280" height="720"
-         fetchpriority="high"
+         width="480" height="360"
+         loading="lazy"
          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
     <!-- Botão play estilo YouTube -->
     <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.06);">
