@@ -330,6 +330,24 @@
             });
         }
 
+        // Personalização com dados da URL
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var firstName  = params.get('customer_first_name');
+            var saleNumber = params.get('sale_number');
+
+            if (firstName) {
+                document.querySelector('h1').textContent = 'Obrigado, ' + firstName + '!';
+            }
+            if (saleNumber) {
+                var subtitle = document.querySelector('.subtitle');
+                var badge = document.createElement('p');
+                badge.style.cssText = 'font-family:\'Inter\',sans-serif;font-size:0.8rem;font-weight:600;color:#2D5E3F;margin-bottom:0.5rem;';
+                badge.textContent = 'Pedido nº ' + saleNumber;
+                subtitle.parentNode.insertBefore(badge, subtitle);
+            }
+        })();
+
         // Disparo de evento de conversão no GTM
         window.addEventListener('load', function() {
             var params = new URLSearchParams(window.location.search);
