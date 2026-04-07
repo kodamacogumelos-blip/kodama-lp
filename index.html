@@ -1406,10 +1406,11 @@ if (window.innerWidth >= 1024) {
       <h2 class="font-heading text-k-green text-lg font-bold leading-tight">
         Quanto mais unidades, maior o desconto
       </h2>
-      <!-- Urgency strip -->
-      <div style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.5rem;background:#fef3e2;border:1px solid rgba(200,169,110,0.4);border-radius:999px;padding:0.3rem 0.9rem;">
-        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#e07020;animation:pulse 1.5s infinite;flex-shrink:0;"></span>
-        <span style="font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:600;color:#7A5700;">🔥 47 pessoas compraram nas últimas 24h</span>
+      <!-- Countdown timer -->
+      <div style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.6rem;background:#1A2D08;border-radius:999px;padding:0.35rem 1rem;">
+        <svg width="11" height="11" fill="none" stroke="#C8A96E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span style="font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.75);">Preços com desconto reservados por</span>
+        <span id="kdm-countdown" style="font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:800;color:#C8A96E;letter-spacing:0.04em;min-width:2.8rem;text-align:left;">--:--</span>
       </div>
     </div>
 
@@ -1441,6 +1442,29 @@ if (window.innerWidth >= 1024) {
     </div>
   </div>
 </section>
+<script>
+(function () {
+  var KEY = 'kdm_t';
+  var MINS = Math.floor(Math.random() * 6) + 8;
+  var stored = sessionStorage.getItem(KEY);
+  var end = stored ? parseInt(stored, 10) : Date.now() + MINS * 60000;
+  if (!stored) sessionStorage.setItem(KEY, end);
+  var el = document.getElementById('kdm-countdown');
+  if (!el) return;
+  function tick() {
+    var rem = Math.max(0, Math.round((end - Date.now()) / 1000));
+    var m = Math.floor(rem / 60);
+    var s = rem % 60;
+    el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    if (rem === 0) {
+      end = Date.now() + MINS * 60000;
+      sessionStorage.setItem(KEY, end);
+    }
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
 
 <!-- ════════════════════════════════════════════
      KODAMA COIN BANNER
