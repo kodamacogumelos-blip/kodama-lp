@@ -331,9 +331,26 @@
         }
 
         // Disparo de evento de conversão no GTM
-        window.dataLayer.push({
-            event: 'purchase',
-            currency: 'BRL'
+        window.addEventListener('load', function() {
+            var params = new URLSearchParams(window.location.search);
+            var saleId     = params.get('sale_id') || 'KDM-' + Date.now();
+            var saleAmount = parseFloat(params.get('sale_amount') || '0');
+            var payment    = params.get('payment') || '';
+            var productName = params.get('product_name') || '';
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'purchase',
+                currency: 'BRL',
+                value: saleAmount,
+                transaction_id: String(saleId),
+                payment_type: payment,
+                items: [{
+                    item_name: productName,
+                    quantity: parseInt(params.get('product_quantity') || '1'),
+                    price: parseFloat(params.get('products_amount') || saleAmount)
+                }]
+            });
         });
     </script>
 </body>
